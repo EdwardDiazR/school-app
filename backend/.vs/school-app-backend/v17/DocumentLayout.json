@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\school-app-backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\school-app\\school-app-backend\\school-app-backend\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|solutionrelative:school-app-backend\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\school-app\\school-app-backend\\school-app-backend\\school-app-backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|solutionrelative:school-app-backend\\school-app-backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\school-app\\school-app-backend\\school-app-backend\\school-app-backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|solutionrelative:school-app-backend\\school-app-backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 1103,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\school-app-backend\\school-app-backend\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "school-app-backend\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\school-app-backend\\school-app-backend\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "school-app-backend\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T15:29:31.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "school-app-backend.http",
+              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\school-app-backend\\school-app-backend\\school-app-backend.http",
+              "RelativeDocumentMoniker": "school-app-backend\\school-app-backend.http",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\school-app-backend\\school-app-backend\\school-app-backend.http",
+              "RelativeToolTip": "school-app-backend\\school-app-backend.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-02-19T15:29:02.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "school-app-backend",
+              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\school-app-backend\\school-app-backend\\school-app-backend.csproj",
+              "RelativeDocumentMoniker": "school-app-backend\\school-app-backend.csproj",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\school-app-backend\\school-app-backend\\school-app-backend.csproj",
+              "RelativeToolTip": "school-app-backend\\school-app-backend.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-19T15:28:59.213Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
