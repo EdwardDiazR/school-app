@@ -11,11 +11,12 @@ export default function FeedCard() {
       style={{
         backgroundColor: "white",
         elevation: 1,
-        borderRadius: 15,
+        borderRadius: 7,
         padding: 10,
         flexDirection: "row",
         alignItems: "center",
         gap: 10,
+        marginEnd:7
       }}
     >
       <View

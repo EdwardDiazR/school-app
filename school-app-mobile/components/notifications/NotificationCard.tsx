@@ -30,7 +30,6 @@ export default function NotificationCard({
   };
   return (
     <Animated.View
-      
       style={[
         IsLastVisible ? styles.partialItem : styles.item,
         {

@@ -9,8 +9,23 @@ export default function _layout() {
       initialRouteName="home"
       screenOptions={{
         headerShown: false,
-        tabBarStyle: { padding: 10, height: 60 },
-        tabBarLabelStyle: { fontSize: 13, fontFamily: "MulishRegular" },
+        tabBarStyle: {
+          height: 60,
+          position: "absolute",
+          borderRadius: 15,
+          borderTopWidth: 0,
+          bottom: 10,
+          left: 20,
+          right: 20,
+          marginHorizontal: 10,
+          zIndex: 1000,
+        },
+
+        tabBarLabelStyle: {
+          fontSize: 13,
+          fontFamily: "MulishRegular",
+          borderRadius: 10,
+        },
       }}
     >
       <Tabs.Screen
@@ -24,9 +39,16 @@ export default function _layout() {
         name="students"
         options={{
           title: "Estudiantes",
-          tabBarIcon: () => (
+          tabBarIcon: ({ focused }) => (
             <MaterialIcons name="escalator-warning" size={30} />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="payments"
+        options={{
+          title: "Pagos",
+          tabBarIcon: () => <MaterialIcons name="home" size={30} />,
         }}
       />
       <Tabs.Screen

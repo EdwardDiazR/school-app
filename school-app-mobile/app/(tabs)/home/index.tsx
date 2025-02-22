@@ -1,5 +1,14 @@
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import {
+  Button,
+  FlatList,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import React, { useEffect, useState } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { StylesConstants } from "@/constants/Styles";
 import { ScrollView } from "react-native";
@@ -15,10 +24,21 @@ import Animated, {
   FadeIn,
   FadeInLeft,
   useSharedValue,
+  Easing,
+  withTiming,
+  useAnimatedStyle,
+  withSpring,
+  FadeOut,
+  ScrollEvent,
 } from "react-native-reanimated";
+import { Stack } from "expo-router";
+import FeedPaymentCard from "@/components/payments/FeedPaymentCard";
+
 export default function index() {
+  const [atTop, setAtTop] = useState<boolean>(true);
+  const [atBottom, setAtBottom] = useState<boolean>(false);
   const { top } = useSafeAreaInsets();
-  const MAX_VISIBLE_ITEMS = 3;
+  const MAX_VISIBLE_ITEMS = 2;
 
   const date = new Date();
   const SpanishDate = new Intl.DateTimeFormat("es-ES", {
@@ -69,53 +89,101 @@ export default function index() {
 
   Notifications.sort((a, b) => Number(a.IsRead) - Number(b.IsRead));
 
-  const opacity = useSharedValue(0);
-  const handleOpacity = () => {
-    opacity.value += 1;
+  const width = useSharedValue(100);
+
+  const handlePress = () => {
+    width.value = withSpring(width.value + 20);
+  };
+
+  useEffect(() => {
+    console.log(atTop, atBottom);
+  }, [atTop, atBottom]);
+
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const contentOffsetY = event.nativeEvent.contentOffset.y;
+    const contentHeight = event.nativeEvent.contentSize.height;
+    const layoutHeight = event.nativeEvent.layoutMeasurement.height;
+
+    console.log("Scroll");
+
+    // Detectar si estamos al inicio
+    if (contentOffsetY === 0) {
+      setAtTop(true);
+    } else {
+      setAtTop(false);
+    }
+
+    // Detectar si estamos al final (ajuste: considerar un pequeño margen de error)
+    if (contentOffsetY + layoutHeight >= contentHeight - 10) {
+      // Un pequeño margen
+      setAtBottom(true);
+    } else {
+      setAtBottom(false);
+    }
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: Colors.blueSky }}>
-      <ScrollView>
-        <View
-          style={[
-            styles.container,
-            {
-              paddingTop: top + 10,
-              paddingHorizontal: StylesConstants.paddingHorizontal,
-            },
-          ]}
-        >
-          <Animated.View
-            style={{
-              backgroundColor: "white",
-              borderTopEndRadius: 10,
-              borderTopStartRadius: 10,
-              borderBottomEndRadius: 5,
-              borderBottomStartRadius: 5,
-              padding: 10,
-              elevation: 10,
-              opacity: opacity
-            }}
-          >
-            <Text
+    <View style={{ flex: 1 }}>
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          statusBarBackgroundColor: "white",
+          statusBarAnimation: "fade",
+          headerStyle: { backgroundColor: "transparent" },
+          header: () => (
+            <View
               style={{
-                fontFamily: "MulishSemiBold",
-                fontSize: 19,
+                backgroundColor: Colors.blueMedium,
               }}
             >
-              Hola July,
-            </Text>
-            <Text
-              style={{
-                fontFamily: "MulishRegular",
-                fontSize: 17,
-                color: "gray",
-              }}
-            >
-              {SpanishDate[0].toUpperCase().concat(SpanishDate.slice(1))}
-            </Text>
-          </Animated.View>
+              <View
+                style={{
+                  elevation: 5,
+                  paddingTop: top + 5,
+                  backgroundColor: "white",
+                  borderWidth: 0,
+                  borderBottomEndRadius: 10,
+                  borderBottomStartRadius: 10,
+                  paddingHorizontal: StylesConstants.paddingHorizontal,
+                  paddingVertical: 10,
+                }}
+              >
+                <Text
+                  style={{
+                    fontFamily: "MulishSemiBold",
+                    fontSize: 19,
+                  }}
+                >
+                  Hola July,
+                </Text>
+                <Text
+                  style={{
+                    fontFamily: "MulishRegular",
+                    fontSize: 17,
+                    color: "gray",
+                  }}
+                >
+                  {SpanishDate[0].toUpperCase().concat(SpanishDate.slice(1))}
+                </Text>
+              </View>
+            </View>
+          ),
+        }}
+      />
+      <LinearGradient
+        colors={[Colors.blueMedium, Colors.blueSky, Colors.blueMedium]}
+        start={{ x: 0.1, y: 0.9 }}
+        end={{ x: 0.4, y: 0.01 }}
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          top: 0,
+          height: "100%",
+        }}
+      />
+      <ScrollView style={{}}>
+        <View style={[styles.container, { marginBottom: 50 }]}>
           <View style={{ flexDirection: "column", marginTop: 10, gap: 5 }}>
             <Text
               style={{
@@ -124,12 +192,23 @@ export default function index() {
                 color: "white",
               }}
             >
-              Tus estudiantes activos
+              Tus estudiantes activos (2)
             </Text>
-            <FeedCard />
+
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}
+              // onScroll={handleScroll}
+              // scrollEventThrottle={50}
+              fadingEdgeLength={30}
+            >
+              <FeedCard />
+              <FeedCard />
+            </ScrollView>
           </View>
 
-          <View style={{ flexDirection: "column", marginTop: 10, gap: 5 }}>
+          <View style={{ flexDirection: "column", marginTop: 7, gap: 5 }}>
             <Text
               style={{
                 fontFamily: "MulishSemiBold",
@@ -139,58 +218,86 @@ export default function index() {
             >
               Notificaciones
             </Text>
-            <Animated.View entering={FadeInLeft.duration(2000)}>
-              <FlatList
-                scrollEnabled={false}
-                data={Notifications.slice(0, MAX_VISIBLE_ITEMS + 1)}
-                renderItem={({ item, index }) => {
-                  let fadeAmount = index === MAX_VISIBLE_ITEMS ? 0.3 : 1; // Más transparente en el último
-                  return (
-                    <NotificationCard
-                      NotificationInfo={item}
-                      key={index}
-                      IsLastVisible={index === MAX_VISIBLE_ITEMS}
-                      fadeAmount={fadeAmount}
-                    />
-                  );
-                }}
-                ListFooterComponent={() => (
-                  <>
-                    {Notifications.length > 3 && (
-                      <Pressable
+            <FlatList
+              scrollEnabled={false}
+              data={Notifications.slice(0, MAX_VISIBLE_ITEMS + 1)}
+              renderItem={({ item, index }) => {
+                let fadeAmount = index === MAX_VISIBLE_ITEMS ? 0.3 : 1; // Más transparente en el último
+                return (
+                  <NotificationCard
+                    NotificationInfo={item}
+                    key={index}
+                    IsLastVisible={index === MAX_VISIBLE_ITEMS}
+                    fadeAmount={fadeAmount}
+                  />
+                );
+              }}
+              ListFooterComponent={() => (
+                <>
+                  {Notifications.length > 3 && (
+                    <Pressable
+                      style={{
+                        backgroundColor: "white",
+                        borderRadius: 15,
+                        width: 100,
+                        height: 30,
+                        alignItems: "center",
+                        justifyContent: "center",
+                        alignSelf: "center",
+                        marginTop: 10,
+                        marginBottom: 5,
+                        elevation: 5,
+                      }}
+                    >
+                      <Text
                         style={{
-                          backgroundColor: "transparent",
-                          padding: 5,
-                          borderRadius: 10,
+                          fontFamily: "MulishSemibold",
+                          color: Colors.blueSky,
                         }}
                       >
-                        <Text
-                          style={{
-                            fontFamily: "MulishSemibold",
-                            color: Colors.blueSky,
-                            textAlign: "center",
-                          }}
-                        >
-                          Ver todas
-                        </Text>
-                      </Pressable>
-                    )}
-                  </>
-                )}
-              />
-            </Animated.View>
+                        Ver todas
+                      </Text>
+                    </Pressable>
+                  )}
+                </>
+              )}
+            />
           </View>
 
-          <View style={{ flexDirection: "column", marginTop: 10, gap: 5 }}>
-            <Text
+          <View style={{ flexDirection: "column", marginTop: 7, gap: 5 }}>
+            <View
               style={{
-                fontFamily: "MulishSemiBold",
-                fontSize: 16,
-                color: "white",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexDirection: "row",
               }}
             >
-              Pagos
-            </Text>
+              <Text
+                style={{
+                  fontFamily: "MulishSemiBold",
+                  fontSize: 16,
+                  color: "white",
+                }}
+              >
+                Proximos pagos
+              </Text>
+              <View
+                style={{ flexDirection: "row", gap: 2, alignItems: "center" }}
+              >
+                <Text
+                  style={{
+                    fontFamily: "MulishSemibold",
+                    fontSize: 15,
+                    color: "white",
+                  }}
+                >
+                  Ver mas
+                </Text>
+                <MaterialIcons name="chevron-right" size={25} color={"white"} />
+              </View>
+            </View>
+
+            <FeedPaymentCard />
           </View>
         </View>
       </ScrollView>
@@ -201,6 +308,7 @@ export default function index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingHorizontal: StylesConstants.paddingHorizontal - 5,
   },
   partialItem: {
     position: "relative",
@@ -209,12 +317,5 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-  },
-  gradient: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    bottom: 0,
-    height: 40, // Controla la altura del degradado
   },
 });
