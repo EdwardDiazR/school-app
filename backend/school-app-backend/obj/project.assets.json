@@ -453,11 +453,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\school-app-backend\\school-app-backend\\school-app-backend.csproj",
+      "projectUniqueName": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\school-app-backend.csproj",
       "projectName": "school-app-backend",
-      "projectPath": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\school-app-backend\\school-app-backend\\school-app-backend.csproj",
+      "projectPath": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\school-app-backend.csproj",
       "packagesPath": "C:\\Users\\eadia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\school-app-backend\\school-app-backend\\obj\\",
+      "outputPath": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

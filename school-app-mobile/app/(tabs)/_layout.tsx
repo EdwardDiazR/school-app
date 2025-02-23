@@ -19,6 +19,7 @@ export default function _layout() {
           right: 20,
           marginHorizontal: 10,
           zIndex: 1000,
+          backgroundColor:'white'
         },
 
         tabBarLabelStyle: {

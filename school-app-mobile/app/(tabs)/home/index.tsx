@@ -127,9 +127,8 @@ export default function index() {
       <Stack.Screen
         options={{
           headerShown: true,
-          statusBarBackgroundColor: "white",
-          statusBarAnimation: "fade",
-          headerStyle: { backgroundColor: "transparent" },
+
+          headerStyle: {},
           header: () => (
             <View
               style={{
@@ -174,6 +173,7 @@ export default function index() {
         colors={[Colors.blueMedium, Colors.blueSky, Colors.blueMedium]}
         start={{ x: 0.1, y: 0.9 }}
         end={{ x: 0.4, y: 0.01 }}
+        dither
         style={{
           position: "absolute",
           left: 0,
@@ -184,11 +184,11 @@ export default function index() {
       />
       <ScrollView style={{}}>
         <View style={[styles.container, { marginBottom: 50 }]}>
-          <View style={{ flexDirection: "column", marginTop: 10, gap: 5 }}>
+          <View style={{ flexDirection: "column", marginTop: 10, gap: 4 }}>
             <Text
               style={{
-                fontFamily: "MulishSemiBold",
-                fontSize: 16,
+                fontFamily: "MulishBold",
+                fontSize: 16.5,
                 color: "white",
               }}
             >
@@ -208,11 +208,11 @@ export default function index() {
             </ScrollView>
           </View>
 
-          <View style={{ flexDirection: "column", marginTop: 7, gap: 5 }}>
+          <View style={{ flexDirection: "column", marginTop: 7, gap: 4 }}>
             <Text
               style={{
-                fontFamily: "MulishSemiBold",
-                fontSize: 16,
+                fontFamily: "MulishBold",
+                fontSize: 16.5,
                 color: "white",
               }}
             >
@@ -264,7 +264,7 @@ export default function index() {
             />
           </View>
 
-          <View style={{ flexDirection: "column", marginTop: 7, gap: 5 }}>
+          <View style={{ flexDirection: "column", marginTop: 6, gap: 5 }}>
             <View
               style={{
                 justifyContent: "space-between",
@@ -274,8 +274,8 @@ export default function index() {
             >
               <Text
                 style={{
-                  fontFamily: "MulishSemiBold",
-                  fontSize: 16,
+                  fontFamily: "MulishBold",
+                  fontSize: 16.5,
                   color: "white",
                 }}
               >
@@ -286,8 +286,8 @@ export default function index() {
               >
                 <Text
                   style={{
-                    fontFamily: "MulishSemibold",
-                    fontSize: 15,
+                    fontFamily: "MulishBold",
+                    fontSize: 16,
                     color: "white",
                   }}
                 >
@@ -297,6 +297,7 @@ export default function index() {
               </View>
             </View>
 
+            <FeedPaymentCard />
             <FeedPaymentCard />
           </View>
         </View>
