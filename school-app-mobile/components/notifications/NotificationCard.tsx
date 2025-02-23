@@ -53,7 +53,7 @@ export default function NotificationCard({
             }}
           >
             <View style={{ flexDirection: "row", gap: 5 }}>
-              <Text style={{ fontFamily: "MulishBold" }}>
+              <Text style={{ fontFamily: "MulishBold", fontSize: 14 }}>
                 {NotificationInfo.student}
               </Text>
               <Text>|</Text>
@@ -69,18 +69,28 @@ export default function NotificationCard({
                   size={9}
                   color={CategoryColors[NotificationInfo.Category]}
                 />
-                <Text>{NotificationInfo.Category}</Text>
+                <Text style={{ fontSize: 14, fontFamily: "MulishRegular" }}>
+                  {NotificationInfo.Category}
+                </Text>
               </View>
             </View>
-            <Text style={{ fontFamily: "MulishRegular", color: "gray" }}>
+            <Text
+              style={{
+                fontSize: 14,
+                fontFamily: "MulishRegular",
+                color: "gray",
+              }}
+            >
               {date.toLocaleDateString("es-ES")}
             </Text>
           </View>
-          <Text style={{ fontFamily: "MulishRegular", color: "gray" }}>
-            De: {NotificationInfo.From}| {NotificationInfo.SubmitterPosition}{" "}
+          <Text
+            style={{ fontFamily: "MulishRegular", color: "gray", fontSize: 13 }}
+          >
+            De: {NotificationInfo.From} | {NotificationInfo.SubmitterPosition}{" "}
           </Text>
         </View>
-        <Text>{NotificationInfo.Description}</Text>
+        <Text style={{ fontSize: 13.5 }}>{NotificationInfo.Description}</Text>
       </View>
     </Animated.View>
   );

@@ -12,6 +12,7 @@ export default function index() {
         colors={[Colors.blueMedium, Colors.blueSky, Colors.blueMedium]}
         start={{ x: 0.05, y: 0.9 }}
         end={{ x: 1.4, y: 0.01 }}
+        dither
         style={{
           position: "absolute",
           left: 0,

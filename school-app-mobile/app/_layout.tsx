@@ -10,7 +10,8 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import React from "react";
-import {} from "react-native-reanimated"; // Importa ReanimatedProvider
+import 'react-native-reanimated';
+
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -38,7 +39,7 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === "light" ? DarkTheme : DefaultTheme}>
       <Redirect href={"/(tabs)/home"} />
-      <Stack>
+      <Stack screenOptions={{}}>
         <Stack.Screen name="auth" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />

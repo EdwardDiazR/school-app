@@ -2,5 +2,12 @@
 {
     public class StudentService
     {
+        public void CreateStudent()
+        {
+            Student student = new()
+            {
+                
+            };
+        }
     }
 }

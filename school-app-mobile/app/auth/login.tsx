@@ -6,12 +6,15 @@ import { TextInput } from "react-native-paper";
 import { MaterialIcons, Octicons } from "@expo/vector-icons";
 import { Image } from "react-native";
 import { Colors } from "@/constants/Colors";
+import { LinearGradient } from "expo-linear-gradient";
+import { router, useRouter } from "expo-router";
 
 export default function login() {
   const CanAccessWithBiometrics = true;
   const [IsPasswordVisible, SetIsPasswordVisible] = useState<Boolean>(false);
   const { top } = useSafeAreaInsets();
   const paddingHorizontalValue = 15;
+  const router = useRouter();
 
   const TogglePasswordVisibility = () => {
     SetIsPasswordVisible(!IsPasswordVisible);
@@ -105,31 +108,29 @@ export default function login() {
           }}
         >
           <Pressable
-            style={{ height: StylesConstants.Login.buttonHeight, flex: 1 }}
+            style={{
+              flex: 1,
+              height: StylesConstants.Login.buttonHeight,
+              elevation: 1,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 5,
+              borderRadius: StylesConstants.Login.buttonRadius,
+              backgroundColor: Colors.blueMedium,
+              padding: StylesConstants.Login.buttonPadding,
+            }}
+            onPress={() => {}}
           >
-            <View
+            <Text
               style={{
-                flex: 1,
-                elevation: 1,
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 5,
-                borderRadius: StylesConstants.Login.buttonRadius,
-                backgroundColor: Colors.blueMedium,
-                padding: StylesConstants.Login.buttonPadding,
+                color: "white",
+                fontFamily: "MulishSemiBold",
+                fontSize: 16,
               }}
             >
-              <Text
-                style={{
-                  color: "white",
-                  fontFamily: "MulishSemiBold",
-                  fontSize: 16,
-                }}
-              >
-                Acceder
-              </Text>
-            </View>
+              Acceder
+            </Text>
           </Pressable>
           <Pressable
             style={{ height: StylesConstants.Login.buttonHeight }}
@@ -148,7 +149,7 @@ export default function login() {
                 gap: 5,
                 borderRadius: 100,
                 backgroundColor: CanAccessWithBiometrics
-                  ? Colors.blueSky
+                  ? Colors.brightOrange
                   : "lightgray",
                 padding: StylesConstants.Login.buttonPadding,
               }}

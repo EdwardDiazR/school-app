@@ -10,7 +10,7 @@ export const Colors = {
   blueMedium: "#0069FF",
   blueSky: "#0D92F4",
   darkOrange: "#fe7e1b",
-  blueGradient: ["#0069FF", "#0D92F4", "#0069FF"],
+  brightOrange: "#ff8500",
 
   light: {
     text: "white",

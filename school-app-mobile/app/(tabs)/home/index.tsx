@@ -31,7 +31,7 @@ import Animated, {
   FadeOut,
   ScrollEvent,
 } from "react-native-reanimated";
-import { Stack } from "expo-router";
+import { router, Stack } from "expo-router";
 import FeedPaymentCard from "@/components/payments/FeedPaymentCard";
 
 export default function index() {
@@ -88,46 +88,29 @@ export default function index() {
   ];
 
   Notifications.sort((a, b) => Number(a.IsRead) - Number(b.IsRead));
+  const randomWidth = useSharedValue(10);
 
-  const width = useSharedValue(100);
-
-  const handlePress = () => {
-    width.value = withSpring(width.value + 20);
+  const config = {
+    duration: 500,
+    easing: Easing.bezier(0.5, 0.01, 0, 1),
   };
 
+  const style = useAnimatedStyle(() => {
+    return {
+      width: withTiming(randomWidth.value, config),
+    };
+  });
   useEffect(() => {
     console.log(atTop, atBottom);
   }, [atTop, atBottom]);
 
-  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const contentOffsetY = event.nativeEvent.contentOffset.y;
-    const contentHeight = event.nativeEvent.contentSize.height;
-    const layoutHeight = event.nativeEvent.layoutMeasurement.height;
-
-    console.log("Scroll");
-
-    // Detectar si estamos al inicio
-    if (contentOffsetY === 0) {
-      setAtTop(true);
-    } else {
-      setAtTop(false);
-    }
-
-    // Detectar si estamos al final (ajuste: considerar un pequeño margen de error)
-    if (contentOffsetY + layoutHeight >= contentHeight - 10) {
-      // Un pequeño margen
-      setAtBottom(true);
-    } else {
-      setAtBottom(false);
-    }
-  };
+  const [IsShowingBanner, SetIsShowingBanner] = useState<boolean>(true);
 
   return (
     <View style={{ flex: 1 }}>
       <Stack.Screen
         options={{
           headerShown: true,
-
           headerStyle: {},
           header: () => (
             <View
@@ -182,18 +165,78 @@ export default function index() {
           height: "100%",
         }}
       />
-      <ScrollView style={{}}>
-        <View style={[styles.container, { marginBottom: 50 }]}>
-          <View style={{ flexDirection: "column", marginTop: 10, gap: 4 }}>
+      <ScrollView style={{}} showsVerticalScrollIndicator={false}>
+        <View style={[styles.container, { marginBottom: 80, gap: 10 }]}>
+
+          {/* Aviso banner */}
+          {/* <Animated.View
+            style={{
+              backgroundColor: "white",
+              borderRadius: 8,
+              paddingHorizontal: 15,
+              paddingTop: 10,
+              paddingBottom: 17,
+              marginTop: 10,
+              gap: 5,
+              elevation: 5,
+              shadowColor: "red",
+            }}
+          >
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+            >
+              <MaterialIcons
+                name="lightbulb"
+                color={Colors.brightOrange}
+                size={20}
+              />
+              <Text
+                style={{
+                  fontFamily: "MulishBold",
+                  fontSize: 17,
+                  color: Colors.darkOrange,
+                }}
+              >
+                Anuncio
+              </Text>
+            </View>
             <Text
               style={{
-                fontFamily: "MulishBold",
-                fontSize: 16.5,
-                color: "white",
+                fontFamily: "MulishRegular",
+                fontSize: 16,
+                color: "black",
               }}
             >
-              Tus estudiantes activos (2)
+              Han sido publicadas las notas correspondientes al periodo
+              Agosto-Diciembre 2025
             </Text>
+          </Animated.View> */}
+
+          <View
+            style={{
+              flexDirection: "column",
+              marginTop: IsShowingBanner ? 5 : 15,
+              gap: 7,
+            }}
+          >
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+            >
+              <MaterialIcons
+                name="escalator-warning"
+                size={25}
+                color={"white"}
+              />
+              <Text
+                style={{
+                  fontFamily: "MulishBold",
+                  fontSize: 16.5,
+                  color: "white",
+                }}
+              >
+                Tus estudiantes activos (2)
+              </Text>
+            </View>
 
             <ScrollView
               horizontal
@@ -201,7 +244,7 @@ export default function index() {
               showsVerticalScrollIndicator={false}
               // onScroll={handleScroll}
               // scrollEventThrottle={50}
-              fadingEdgeLength={30}
+              fadingEdgeLength={50}
             >
               <FeedCard />
               <FeedCard />
@@ -209,15 +252,43 @@ export default function index() {
           </View>
 
           <View style={{ flexDirection: "column", marginTop: 7, gap: 4 }}>
-            <Text
+            <View
               style={{
-                fontFamily: "MulishBold",
-                fontSize: 16.5,
-                color: "white",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexDirection: "row",
               }}
             >
-              Notificaciones
-            </Text>
+              <View
+                style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+              >
+                <MaterialIcons name="notifications" size={25} color={"white"} />
+                <Text
+                  style={{
+                    fontFamily: "MulishBold",
+                    fontSize: 16.5,
+                    color: "white",
+                  }}
+                >
+                  Notificaciones
+                </Text>
+              </View>
+              <Pressable
+                style={{ flexDirection: "row", gap: 2, alignItems: "center" }}
+                onPress={() => router.push("/(tabs)/payments")}
+              >
+                <Text
+                  style={{
+                    fontFamily: "MulishBold",
+                    fontSize: 16,
+                    color: "white",
+                  }}
+                >
+                  Ver mas
+                </Text>
+                <MaterialIcons name="chevron-right" size={25} color={"white"} />
+              </Pressable>
+            </View>
             <FlatList
               scrollEnabled={false}
               data={Notifications.slice(0, MAX_VISIBLE_ITEMS + 1)}
@@ -264,6 +335,7 @@ export default function index() {
             />
           </View>
 
+          {/* Payments Section */}
           <View style={{ flexDirection: "column", marginTop: 6, gap: 5 }}>
             <View
               style={{
@@ -272,17 +344,23 @@ export default function index() {
                 flexDirection: "row",
               }}
             >
-              <Text
-                style={{
-                  fontFamily: "MulishBold",
-                  fontSize: 16.5,
-                  color: "white",
-                }}
-              >
-                Proximos pagos
-              </Text>
               <View
+                style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+              >
+                <MaterialIcons name="attach-money" size={25} color={"white"} />
+                <Text
+                  style={{
+                    fontFamily: "MulishBold",
+                    fontSize: 16.5,
+                    color: "white",
+                  }}
+                >
+                  Proximos pagos
+                </Text>
+              </View>
+              <Pressable
                 style={{ flexDirection: "row", gap: 2, alignItems: "center" }}
+                onPress={() => router.push("/(tabs)/payments")}
               >
                 <Text
                   style={{
@@ -294,11 +372,16 @@ export default function index() {
                   Ver mas
                 </Text>
                 <MaterialIcons name="chevron-right" size={25} color={"white"} />
-              </View>
+              </Pressable>
             </View>
 
-            <FeedPaymentCard />
-            <FeedPaymentCard />
+            <FlatList
+              scrollEnabled={false}
+              data={[false, true, false]}
+              renderItem={({ item, index }) => {
+                return <FeedPaymentCard IsExpired={item} key={index} />;
+              }}
+            />
           </View>
         </View>
       </ScrollView>

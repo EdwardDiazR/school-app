@@ -2,28 +2,49 @@ import { View, Text, Pressable } from "react-native";
 import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 
-export default function FeedPaymentCard() {
+export default function FeedPaymentCard({ IsExpired }: { IsExpired: boolean }) {
   return (
-    <Pressable>
+    <Pressable
+      style={{
+        backgroundColor: "white",
+        borderRadius: 5,
+        paddingVertical: 8,
+        paddingHorizontal: 10,
+
+        elevation: 1,
+        marginVertical: 5,
+        gap: 3,
+      }}
+    >
+      {IsExpired && (
+        <Text
+          style={{
+            fontFamily: "MulishBold",
+            color: "white",
+            backgroundColor: "red",
+            borderRadius: 6,
+            width: 80,
+            textAlign: "center",
+            fontSize: 13,
+          }}
+        >
+          En atraso
+        </Text>
+      )}
       <View
         style={{
-          backgroundColor: "white",
-          borderRadius: 5,
-          paddingVertical: 8,
-          paddingHorizontal: 10,
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
-          elevation: 1,
         }}
       >
         <View>
-          <Text style={{ fontFamily: "MulishBold", fontSize: 15 }}>
+          <Text style={{ fontFamily: "MulishBold", fontSize: 14 }}>
             (Jose) Mensualidad Febrero 2025
           </Text>
           <Text
             style={{
-              fontSize: 14,
+              fontSize: 13.5,
               fontFamily: "MulishSemiBold",
             }}
           >
@@ -31,7 +52,7 @@ export default function FeedPaymentCard() {
           </Text>
         </View>
         <Text
-          style={{ fontFamily: "MulishSemiBold", color: "green", fontSize: 14 }}
+          style={{ fontFamily: "MulishBold", color: "green", fontSize: 14 }}
         >
           RD$ 4,200
         </Text>

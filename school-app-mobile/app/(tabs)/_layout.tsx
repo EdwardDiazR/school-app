@@ -1,47 +1,89 @@
 import { View, Text } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { Tabs } from "expo-router";
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import { Colors } from "@/constants/Colors";
+import { BlurView } from "expo-blur";
 
 export default function _layout() {
+  const TAB_ACTIVE_COLOR = "white";
+
+  const TAB_UNACTIVE_COLOR = "white";
+
+  // 21b0fe blue
+
+  const EXPIRED_PAYMENTS = 1;
+  useEffect(() => {}, []);
   return (
     <Tabs
       initialRouteName="home"
       screenOptions={{
         headerShown: false,
+        tabBarActiveBackgroundColor: Colors.brightOrange,
+        tabBarItemStyle: { marginTop: 5 },
         tabBarStyle: {
-          height: 60,
+          height: 63,
+          alignItems: "center",
           position: "absolute",
-          borderRadius: 15,
+          borderRadius: 25,
           borderTopWidth: 0,
-          bottom: 10,
+          bottom: 11,
           left: 20,
           right: 20,
           marginHorizontal: 10,
-          zIndex: 1000,
-          backgroundColor:'white'
+          elevation: 1,
+          zIndex: 10,
+          overflow: "hidden",
+        },
+
+        tabBarBackground() {
+          return (
+            <BlurView
+              intensity={66}
+              tint="systemUltraThinMaterialDark"
+              style={{
+                flex: 1,
+                overflow: "hidden",
+              }}
+              experimentalBlurMethod="dimezisBlurView"
+            />
+          );
         },
 
         tabBarLabelStyle: {
-          fontSize: 13,
-          fontFamily: "MulishRegular",
-          borderRadius: 10,
+          fontFamily: "MulishBold",
+          fontSize: 13.5,
         },
+        tabBarActiveTintColor: "white",
+        tabBarInactiveTintColor: "white",
       }}
     >
       <Tabs.Screen
         name="home"
         options={{
           title: "Inicio",
-          tabBarIcon: () => <MaterialIcons name="home" size={30} />,
+          tabBarLabel: "Inicio",
+          tabBarIcon: ({ focused, size }) => (
+            <MaterialCommunityIcons
+              name={focused ? "home-variant" : "home-variant-outline"}
+              size={size}
+              color={focused ? TAB_ACTIVE_COLOR : TAB_UNACTIVE_COLOR}
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="students"
         options={{
           title: "Estudiantes",
-          tabBarIcon: ({ focused }) => (
-            <MaterialIcons name="escalator-warning" size={30} />
+          tabBarLabel: "Estudiantes",
+
+          tabBarIcon: ({ focused, size }) => (
+            <MaterialIcons
+              name="escalator-warning"
+              size={size}
+              color={focused ? TAB_ACTIVE_COLOR : TAB_UNACTIVE_COLOR}
+            />
           ),
         }}
       />
@@ -49,14 +91,39 @@ export default function _layout() {
         name="payments"
         options={{
           title: "Pagos",
-          tabBarIcon: () => <MaterialIcons name="home" size={30} />,
+          tabBarLabel: "Pagos",
+          tabBarBadgeStyle: {
+            display: EXPIRED_PAYMENTS ? "flex" : "none",
+            margin: -0.5,
+            fontFamily: "MulishBold",
+            height: 17,
+            width: 17,
+            textAlign: "center",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+          tabBarBadge: EXPIRED_PAYMENTS,
+
+          tabBarIcon: ({ focused, size }) => (
+            <MaterialIcons
+              name="paid"
+              size={size}
+              color={focused ? TAB_ACTIVE_COLOR : TAB_UNACTIVE_COLOR}
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="account"
         options={{
           title: "Mi cuenta",
-          tabBarIcon: () => <MaterialIcons name="account-circle" size={30} />,
+          tabBarIcon: ({ focused, size }) => (
+            <MaterialIcons
+              name="account-circle"
+              size={size}
+              color={focused ? TAB_ACTIVE_COLOR : TAB_UNACTIVE_COLOR}
+            />
+          ),
         }}
       />
     </Tabs>

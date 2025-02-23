@@ -6,15 +6,18 @@ namespace school_app_backend.Features.Students;
 [Route("api/student")]  
 public class StudentController : Controller
 {
-    public StudentController()
+    private readonly IStudentService _studentService;
+    public StudentController(IStudentService studentService)
     {
+        _studentService = studentService;
     }
 
 
     [HttpGet("{id:int}")]
     public IActionResult GetStudentById(int id)
     {
-        return Ok();
+        var student = _studentService.GetStudentById(id);
+        return Ok(student);
     }
 
     [HttpPost("register")]
