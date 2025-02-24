@@ -19,21 +19,15 @@ export default function _layout() {
       initialRouteName="home"
       screenOptions={{
         headerShown: false,
-        tabBarActiveBackgroundColor: Colors.brightOrange,
+        tabBarActiveBackgroundColor: "#09a6f3",
         tabBarItemStyle: { marginTop: 5 },
         tabBarStyle: {
-          height: 63,
-          alignItems: "center",
-          position: "absolute",
-          borderRadius: 25,
-          borderTopWidth: 0,
-          bottom: 11,
-          left: 20,
-          right: 20,
-          marginHorizontal: 10,
+          height: 65,
+          borderTopEndRadius: 100,
+          borderTopStartRadius: 25,
           elevation: 1,
-          zIndex: 10,
-          overflow: "hidden",
+          borderWidth: 0,
+          backgroundColor: "#f5b700",
         },
 
         tabBarBackground() {
@@ -63,6 +57,7 @@ export default function _layout() {
         options={{
           title: "Inicio",
           tabBarLabel: "Inicio",
+
           tabBarIcon: ({ focused, size }) => (
             <MaterialCommunityIcons
               name={focused ? "home-variant" : "home-variant-outline"}
@@ -73,7 +68,7 @@ export default function _layout() {
         }}
       />
       <Tabs.Screen
-        name="students"
+        name="(students)"
         options={{
           title: "Estudiantes",
           tabBarLabel: "Estudiantes",

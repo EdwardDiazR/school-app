@@ -1,11 +1,15 @@
-import { View, Text } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Colors } from "@/constants/Colors";
+import { StudentCard } from "@/components/students/StudentCard";
+
+import { Portal } from "react-native-paper";
 
 export default function index() {
   const { top } = useSafeAreaInsets();
+
   return (
     <View style={{ flex: 1 }}>
       <LinearGradient
@@ -21,7 +25,9 @@ export default function index() {
           height: "100%",
         }}
       />
-      <Text>Pagos</Text>
+
+      <StudentCard StudentName={"Juan Diaz"} />
+      <StudentCard StudentName={"Zara Ramos"} />
     </View>
   );
 }

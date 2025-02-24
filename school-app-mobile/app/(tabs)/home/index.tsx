@@ -319,6 +319,7 @@ export default function index() {
                         marginBottom: 5,
                         elevation: 5,
                       }}
+                 
                     >
                       <Text
                         style={{
