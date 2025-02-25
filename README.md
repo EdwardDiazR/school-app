@@ -1,4 +1,4 @@
- Gestión Escolar App 📱
+Gestión Escolar App 📱
 Una aplicación diseñada para mejorar la comunicación entre colegios 🏫 y tutores 👨‍👩‍👧, facilitando el acceso a información clave sobre los estudiantes.
 
 ✨ Características principales
