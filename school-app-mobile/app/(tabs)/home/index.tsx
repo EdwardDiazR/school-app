@@ -30,8 +30,10 @@ import Animated, {
   withSpring,
   FadeOut,
   ScrollEvent,
+  FadeInDown,
+  FadeInUp,
 } from "react-native-reanimated";
-import { router, Stack } from "expo-router";
+import { Link, router, Stack } from "expo-router";
 import FeedPaymentCard from "@/components/payments/FeedPaymentCard";
 
 export default function index() {
@@ -166,10 +168,10 @@ export default function index() {
         }}
       />
       <ScrollView style={{}} showsVerticalScrollIndicator={false}>
-        <View style={[styles.container, { marginBottom: 80, gap: 10 }]}>
-
+        <View style={[styles.container, { marginBottom: 10, gap: 10 }]}>
           {/* Aviso banner */}
           {/* <Animated.View
+            entering={FadeInUp.duration(900)}
             style={{
               backgroundColor: "white",
               borderRadius: 8,
@@ -183,7 +185,11 @@ export default function index() {
             }}
           >
             <View
-              style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 5,
+              }}
             >
               <MaterialIcons
                 name="lightbulb"
@@ -275,7 +281,9 @@ export default function index() {
               </View>
               <Pressable
                 style={{ flexDirection: "row", gap: 2, alignItems: "center" }}
-                onPress={() => router.push("/(tabs)/payments")}
+                onPress={() =>
+                  router.push("/(tabs)/students/notificationCenter")
+                }
               >
                 <Text
                   style={{
@@ -307,6 +315,9 @@ export default function index() {
                 <>
                   {Notifications.length > 3 && (
                     <Pressable
+                      onPress={() =>
+                        router.push("/(tabs)/students/notificationCenter")
+                      }
                       style={{
                         backgroundColor: "white",
                         borderRadius: 15,
@@ -319,7 +330,6 @@ export default function index() {
                         marginBottom: 5,
                         elevation: 5,
                       }}
-                 
                     >
                       <Text
                         style={{
@@ -378,7 +388,7 @@ export default function index() {
 
             <FlatList
               scrollEnabled={false}
-              data={[false, true, false]}
+              data={[false, true]}
               renderItem={({ item, index }) => {
                 return <FeedPaymentCard IsExpired={item} key={index} />;
               }}

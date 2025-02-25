@@ -12,7 +12,7 @@ export function StudentCard({ StudentName }: { StudentName: string }) {
       <View
         style={{
           marginVertical: 8,
-          marginHorizontal: 11,
+         
           padding: 10,
           backgroundColor: "white",
           borderRadius: 15,
@@ -68,13 +68,33 @@ export function StudentCard({ StudentName }: { StudentName: string }) {
             style={{
               backgroundColor: "#e9ecef",
               borderRadius: 10,
-              padding: 5,
+              padding: 10,
               gap: 5,
             }}
           >
-            <Text>Status: Activo</Text>
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 2 }}
+            >
+              <Text style={{ fontFamily: "MulishBold" }}>Status:</Text>
+              <View
+                style={{
+                  backgroundColor: "green",
+                  borderRadius: 10,
+                  paddingHorizontal: 5,
+                }}
+              >
+                <Text
+                  style={{
+                    fontFamily: "MulishBold",
+                    color: "white",
+                  }}
+                >
+                  Activo
+                </Text>
+              </View>
+            </View>
             <Divider style={{ borderWidth: 0.3, borderColor: "lightgray" }} />
-            <Text>Curso: 5to Grado</Text>
+            <Text style={{ fontFamily: "MulishBold" }}>Curso: 5to Grado</Text>
             <Divider style={{ borderWidth: 0.3, borderColor: "lightgray" }} />
             <Text style={{ fontFamily: "MulishBold" }}>Parentesco: Hijo</Text>
             <Divider style={{ borderWidth: 0.3, borderColor: "lightgray" }} />
@@ -85,7 +105,7 @@ export function StudentCard({ StudentName }: { StudentName: string }) {
 
           <Link
             href={{
-              pathname: "/(tabs)/(students)/options",
+              pathname: "/(tabs)/students/options",
               params: { name: StudentName },
             }}
             style={{ alignSelf: "center" }}

@@ -8,7 +8,7 @@ import { BlurView } from "expo-blur";
 export default function _layout() {
   const TAB_ACTIVE_COLOR = "white";
 
-  const TAB_UNACTIVE_COLOR = "white";
+  const TAB_UNACTIVE_COLOR = "lightgray";
 
   // 21b0fe blue
 
@@ -18,22 +18,23 @@ export default function _layout() {
     <Tabs
       initialRouteName="home"
       screenOptions={{
+        animation: "shift",
         headerShown: false,
-        tabBarActiveBackgroundColor: "#09a6f3",
         tabBarItemStyle: { marginTop: 5 },
+
         tabBarStyle: {
           height: 65,
-          borderTopEndRadius: 100,
-          borderTopStartRadius: 25,
+
           elevation: 1,
           borderWidth: 0,
-          backgroundColor: "#f5b700",
+          borderColor: "transparent",
+          backgroundColor: Colors.blueMedium,
         },
 
         tabBarBackground() {
           return (
             <BlurView
-              intensity={66}
+              intensity={60}
               tint="systemUltraThinMaterialDark"
               style={{
                 flex: 1,
@@ -49,7 +50,7 @@ export default function _layout() {
           fontSize: 13.5,
         },
         tabBarActiveTintColor: "white",
-        tabBarInactiveTintColor: "white",
+        tabBarInactiveTintColor: "lightgray",
       }}
     >
       <Tabs.Screen
@@ -68,7 +69,7 @@ export default function _layout() {
         }}
       />
       <Tabs.Screen
-        name="(students)"
+        name="students"
         options={{
           title: "Estudiantes",
           tabBarLabel: "Estudiantes",

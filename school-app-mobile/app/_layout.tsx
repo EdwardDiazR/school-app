@@ -43,12 +43,13 @@ export default function RootLayout() {
       <ThemeProvider value={colorScheme === "light" ? DarkTheme : DefaultTheme}>
         <Redirect
           href={{
-            pathname: "/(tabs)/(students)",
+            pathname: "/(tabs)/payments",
           }}
         />
         <Stack screenOptions={{}}>
           <Stack.Screen name="auth" options={{ headerShown: false }} />
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />
