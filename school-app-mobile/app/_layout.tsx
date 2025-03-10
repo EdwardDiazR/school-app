@@ -43,10 +43,10 @@ export default function RootLayout() {
       <ThemeProvider value={colorScheme === "light" ? DarkTheme : DefaultTheme}>
         <Redirect
           href={{
-            pathname: "/(tabs)/payments",
+            pathname: "/(tabs)/students",
           }}
         />
-        <Stack screenOptions={{}}>
+        <Stack screenOptions={{}} initialRouteName="auth">
           <Stack.Screen name="auth" options={{ headerShown: false }} />
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 

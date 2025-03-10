@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "+7eRvZnAkfeDdDssUaIaleJnnIfMHqKBSeIU4gpumuA=",
+  "Source": "school-app-backend",
+  "BasePath": "_content/school-app-backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

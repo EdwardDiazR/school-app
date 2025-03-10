@@ -86,13 +86,13 @@ export default function index() {
   };
   const navigation = useNavigation();
 
-  useEffect(() => {
-    navigation.addListener("blur", (e) => {
-      if (true) {
-        return;
-      }
-    });
-  }, [navigation]);
+  // useEffect(() => {
+  //   navigation.addListener("blur", (e) => {
+  //     if (true) {
+  //       return;
+  //     }
+  //   });
+  // }, [navigation]);
   return (
     <View style={{ flex: 1 }}>
       <LinearGradient
