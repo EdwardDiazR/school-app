@@ -2,6 +2,7 @@
 using school_app_backend.Features.DbRelationships;
 using school_app_backend.Features.Students;
 using school_app_backend.Features.Tutors;
+using school_app_backend.Features.Users;
 using System;
 
 namespace school_app_backend.Data
@@ -13,13 +14,14 @@ namespace school_app_backend.Data
         public DbSet<Student> Students { get; set; }
         public DbSet<Tutor> Tutors { get; set; }
         public DbSet<StudentTutor> StudentsTutors { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Student>().HasQueryFilter(s => !s.IsDeleted);
-            modelBuilder.Entity<Tutor>().HasQueryFilter(s => !s.IsDeleted);
+            //modelBuilder.Entity<Student>().HasQueryFilter(s => !s.IsDeleted);
+            //modelBuilder.Entity<Tutor>().HasQueryFilter(s => !s.IsDeleted);
 
         }
 

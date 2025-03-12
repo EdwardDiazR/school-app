@@ -1,4 +1,4 @@
-import { StudentOptionButton } from "@/models/student/StudentOptions";
+import { StudentOptionButton } from "@/models/students/StudentOptions";
 import { MaterialIcons } from "@expo/vector-icons";
 import React from "react";
 import { View, Text, Pressable } from "react-native";

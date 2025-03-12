@@ -3,14 +3,14 @@
     "ContainingType": "school_app_backend.Features.Auth.AuthController",
     "Method": "Login",
     "RelativePath": "api/auth/login",
-    "HttpMethod": "GET",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "username",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "LoginDto",
+        "Type": "school_app_backend.Features.Auth.DTOs.LoginDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

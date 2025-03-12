@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using school_app_backend.Data;
 using school_app_backend.Features.Auth.Interfaces;
 using school_app_backend.Features.Auth.Services;
 using school_app_backend.Features.Students;
 using school_app_backend.Features.Tutors;
-using System;   
+using System;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -64,8 +65,6 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("Tutor", policy => policy.RequireRole("Tutor"));
     options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
     options.AddPolicy("Admission", policy => policy.RequireRole("Admin", "AdmissionSecretary"));
-
-
     options.AddPolicy("FullManagement", policy =>
     {
         policy.RequireAssertion(c =>
@@ -129,7 +128,7 @@ builder.Services.AddAuthorization(options =>
             c.User.IsInRole("Admin") ||
             c.User.IsInRole("Director") ||
             c.User.IsInRole("SubDirector") ||
-            c.User.IsInRole("AdmissionSecretary") 
+            c.User.IsInRole("AdmissionSecretary")
 
 
         );
@@ -162,7 +161,7 @@ builder.Services.AddAuthorization(options =>
 
             c.User.IsInRole("Admin") ||
             c.User.IsInRole("Director") ||
-            c.User.IsInRole("SubDirector") 
+            c.User.IsInRole("SubDirector")
 
         );
     });
@@ -188,32 +187,47 @@ builder.Services.AddAuthorization(options =>
         );
     });
 
-
-
-
 });
 
 builder.Services.AddCors(CorsOptions =>
 {
     CorsOptions.AddPolicy("FromMobileServer", options =>
     {
-        options.AllowAnyOrigin();
+        options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
     });
 });
 
 builder.Services.AddControllers().AddJsonOptions(o =>
 {
-    o.JsonSerializerOptions.PropertyNamingPolicy = null;
+
+    o.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
 
+    var securityScheme = new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Description = "Introduce el token en el formato: Bearer {token}",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT"
+    };
+    options.AddSecurityDefinition("Bearer", securityScheme);
+
+    var securityRequirement = new OpenApiSecurityRequirement
+    {
+        { securityScheme, new string[] { } }
+    };
+
+    options.AddSecurityRequirement(securityRequirement);
 });
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<ITutorService, TutorService>();
-
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 
@@ -229,11 +243,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(o => { o.EnablePersistAuthorization(); });
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("FromMobileServer");
 app.UseAuthentication();
 app.UseAuthorization();
 

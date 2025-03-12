@@ -8,7 +8,7 @@ namespace school_app_backend.Features.Students
     {
         Task<IEnumerable<Student>> GetStudents();
         Task<List<Student>> GetStudentByName(string name);
-        Student GetStudentById(int StudentId);
+        Student GetStudentById(int StudentId); 
         Task<StudentResponseToTutor> GetStudentByIdToTutor(int StudentId, int TutorId);
         Task<StudentResponseToTeacher> GetStudentByIdToTeacher(int StudentId, int TeacherId);
         Task<Student> RegisterStudent(CreateStudentDto createStudentDto,int UserId);

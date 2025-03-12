@@ -8,9 +8,14 @@ import { Image } from "react-native";
 import { Colors } from "@/constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
 import { router, useRouter } from "expo-router";
+import { LoginDto } from "@/models/Auth";
+import * as _authService from "@/services/authService";
 
 export default function login() {
   const CanAccessWithBiometrics = true;
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
   const [IsPasswordVisible, SetIsPasswordVisible] = useState<Boolean>(false);
   const { top } = useSafeAreaInsets();
   const paddingHorizontalValue = 15;
@@ -18,6 +23,23 @@ export default function login() {
 
   const TogglePasswordVisibility = () => {
     SetIsPasswordVisible(!IsPasswordVisible);
+  };
+
+  const Login = () => {
+    const loginDto: LoginDto = {
+      isBiometric: CanAccessWithBiometrics,
+      username: username,
+      password: password
+    };
+
+    _authService.login(loginDto);
+  };
+
+  const handleUsername = (e:any) => {
+    setUsername(e);
+  };
+  const handlePassword = (e:any) => {
+    setPassword(e);
   };
   return (
     <View
@@ -61,6 +83,7 @@ export default function login() {
           autoCorrect={false}
           autoComplete="off"
           clearButtonMode="unless-editing"
+          onChangeText={handleUsername}
           left={
             <TextInput.Icon icon={() => <Octicons name="person" size={20} />} />
           }
@@ -120,7 +143,7 @@ export default function login() {
               backgroundColor: Colors.blueMedium,
               padding: StylesConstants.Login.buttonPadding,
             }}
-            onPress={() => {}}
+            onPress={Login}
           >
             <Text
               style={{

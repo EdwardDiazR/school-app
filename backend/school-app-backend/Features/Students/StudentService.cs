@@ -202,8 +202,6 @@ namespace school_app_backend.Features.Students
 
             return list;
         }
-
-
         private int CalculateAge(DateTime DateOfBirth)
         {
             //Subject = new ClaimsIdentity(new[]

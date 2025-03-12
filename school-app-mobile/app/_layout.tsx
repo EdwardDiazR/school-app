@@ -43,13 +43,14 @@ export default function RootLayout() {
       <ThemeProvider value={colorScheme === "light" ? DarkTheme : DefaultTheme}>
         <Redirect
           href={{
-            pathname: "/(tabs)/students",
+            pathname: "/auth/login" ,
           }}
         />
         <Stack screenOptions={{}} initialRouteName="auth">
           <Stack.Screen name="auth" options={{ headerShown: false }} />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-
+          <Stack.Screen name="(tutor)" options={{ headerShown: false }} />
+          <Stack.Screen name="(teacher)" options={{ headerShown: false }} />
+          <Stack.Screen name="(admin)" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />

@@ -35,6 +35,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { Link, router, Stack } from "expo-router";
 import FeedPaymentCard from "@/components/payments/FeedPaymentCard";
+import * as _tutorService from "@/services/tutorService";
 
 export default function index() {
   const [atTop, setAtTop] = useState<boolean>(true);
@@ -102,9 +103,18 @@ export default function index() {
       width: withTiming(randomWidth.value, config),
     };
   });
+
+  useEffect(() => {
+     GetInitialData()
+  }, []);
   useEffect(() => {
     console.log(atTop, atBottom);
   }, [atTop, atBottom]);
+
+  const GetInitialData = async () => {
+    //TODO: Get the tutor Id or user id when loggin or from the token
+    await _tutorService.GetStudentsByTutorId(1)
+  };
 
   const [IsShowingBanner, SetIsShowingBanner] = useState<boolean>(true);
 
@@ -282,7 +292,7 @@ export default function index() {
               <Pressable
                 style={{ flexDirection: "row", gap: 2, alignItems: "center" }}
                 onPress={() =>
-                  router.push("/(tabs)/students/notificationCenter")
+                  router.push("(tutor)/(tabs)/students/notificationCenter")
                 }
               >
                 <Text
@@ -316,7 +326,7 @@ export default function index() {
                   {Notifications.length > 3 && (
                     <Pressable
                       onPress={() =>
-                        router.push("/(tabs)/students/notificationCenter")
+                        router.push("(tutor)/(tabs)/students/notificationCenter")
                       }
                       style={{
                         backgroundColor: "white",
@@ -371,7 +381,7 @@ export default function index() {
               </View>
               <Pressable
                 style={{ flexDirection: "row", gap: 2, alignItems: "center" }}
-                onPress={() => router.push("/(tabs)/payments")}
+                onPress={() => router.push("(tutor)/(tabs)/payments")}
               >
                 <Text
                   style={{

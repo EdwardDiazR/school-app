@@ -1,24 +1,34 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "school-app-backend",
-    "version": "1.0"
+    "title": "My API",
+    "version": "v1"
   },
   "paths": {
     "/api/auth/login": {
-      "get": {
+      "post": {
         "tags": [
           "Auth"
         ],
-        "parameters": [
-          {
-            "name": "username",
-            "in": "query",
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -376,44 +386,61 @@
       "CreateStudentDto": {
         "type": "object",
         "properties": {
-          "FirstName": {
+          "firstName": {
             "type": "string",
             "nullable": true
           },
-          "MiddleName": {
+          "middleName": {
             "type": "string",
             "nullable": true
           },
-          "LastName": {
+          "lastName": {
             "type": "string",
             "nullable": true
           },
-          "SecondLastName": {
+          "secondLastName": {
             "type": "string",
             "nullable": true
           },
-          "Gender": {
+          "gender": {
             "type": "string"
           },
-          "Dob": {
+          "dob": {
             "type": "string",
             "format": "date-time"
           },
-          "Address": {
+          "address": {
             "type": "string",
             "nullable": true
           },
-          "Email": {
+          "email": {
             "type": "string",
             "nullable": true
           },
-          "Phone": {
+          "phone": {
             "type": "string",
             "nullable": true
           },
-          "ActualGrade": {
+          "actualGrade": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "isBiometric": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -421,26 +448,37 @@
       "WeatherForecast": {
         "type": "object",
         "properties": {
-          "Date": {
+          "date": {
             "type": "string",
             "format": "date"
           },
-          "TemperatureC": {
+          "temperatureC": {
             "type": "integer",
             "format": "int32"
           },
-          "TemperatureF": {
+          "temperatureF": {
             "type": "integer",
             "format": "int32",
             "readOnly": true
           },
-          "Summary": {
+          "summary": {
             "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Introduce el token en el formato: Bearer {token}",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
     }
-  }
+  },
+  "security": [
+    { }
+  ]
 }

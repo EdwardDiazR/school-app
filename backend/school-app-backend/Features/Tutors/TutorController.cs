@@ -26,13 +26,13 @@ namespace school_app_backend.Features.Tutors
 
         }
 
-        
+
         [HttpGet("{id:int}/students")]
         [Authorize(Roles = "Tutor,Admin")]
-        public IActionResult GetStudentsByTutorId([FromQuery]int TutorId)
+        public IActionResult GetStudentsByTutorId(int TutorId)
         {
             var students = _tutorService.GetStudentsByTutorId(TutorId);
-            return Ok(students);
+            return Ok(new { data = students  });
         }
 
         [HttpPost("{StudentId:int}/tutors/{TutorId:int}")]
@@ -41,7 +41,7 @@ namespace school_app_backend.Features.Tutors
         {
             ClaimsPrincipal Token = User;
             var UserIdFromToken = _tokenService.GetUserId(Token);
-          
+
             _tutorService.AssignStudentToTutor(StudentId, TutorId, UserIdFromToken);
             return Ok("Asociado exitosamente");
         }
@@ -53,7 +53,7 @@ namespace school_app_backend.Features.Tutors
 
             ClaimsPrincipal Token = User;
             var UserIdFromToken = _tokenService.GetUserId(Token);
-          
+
 
             //Desvincular el tutor del estudiante
             _tutorService.RemoveStudentFromTutor(StudentId, TutorId, UserIdFromToken);
