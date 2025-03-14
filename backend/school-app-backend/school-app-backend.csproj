@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="Features\Jwt\" />
+    <Folder Include="Features\Employees\" />
   </ItemGroup>
 
 </Project>

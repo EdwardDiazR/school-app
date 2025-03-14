@@ -57,7 +57,28 @@ namespace school_app_backend.Features.Tutors
 
         public async Task<IEnumerable<Student>> GetStudentsByTutorId(int TutorId)
         {
+            if (_db.StudentsTutors.Count() <= 1)
+            {
+                StudentTutor std = new()
+                {
+                    CreationDate = DateTime.Now,
+                    Relation = Relations.Parent,
+                    StudentId = 1,
+                    TutorId = 1
+                };
+                StudentTutor stds = new()
+                {
+                    CreationDate = DateTime.Now,
+                    Relation = Relations.Parent,
+                    StudentId = 2,
+                    TutorId = 1
+                };
 
+                _db.StudentsTutors.Add(std);
+                _db.StudentsTutors.Add(stds);
+
+                _db.SaveChanges();
+            }
             IEnumerable<Student> students = await _db.StudentsTutors
                 .Where(tutor => tutor.TutorId == TutorId)
                 .Join(_db.Students, studentTutor => studentTutor.StudentId, student => student.Id, (tutor, et) => et)

@@ -1,5 +1,6 @@
 import { LoginDto } from "@/models/Auth";
 import axios, { AxiosError } from "axios";
+import { router } from "expo-router";
 import * as SecureStore from "expo-secure-store";
 
 const baseUrl = "http://192.168.1.31:7252/api/auth";
@@ -8,8 +9,7 @@ export const login = (loginDto: LoginDto) => {
   axios
     .post(`${baseUrl}/login`, loginDto)
     .then((r) => {
-        console.log(loginDto);
-        
+      console.log(loginDto);
       //For test delete token
       //   SecureStore.deleteItemAsync("token");
 
@@ -18,6 +18,8 @@ export const login = (loginDto: LoginDto) => {
       console.log(r.data);
 
       console.log("Tu token es:", SecureStore.getItem("token"));
+
+      // router.push("/(app)/(tutor)/(tabs)/home")
     })
 
     .catch((e) => console.log(e));

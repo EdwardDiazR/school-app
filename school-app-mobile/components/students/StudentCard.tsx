@@ -4,8 +4,9 @@ import { Colors } from "@/constants/Colors";
 import { Divider } from "react-native-paper";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Link, Navigator, router } from "expo-router";
+import { StudentForTutor } from "@/models/students/Student";
 
-export function StudentCard({ StudentName }: { StudentName: string }) {
+export function StudentCard({ Student }: { Student: StudentForTutor }) {
   const ImageSize = 100;
   return (
     <Pressable style={{}}>
@@ -60,7 +61,7 @@ export function StudentCard({ StudentName }: { StudentName: string }) {
               color: "black",
             }}
           >
-            {StudentName}
+            {Student.fullName}
           </Text>
         </View>
         <View style={{ flexDirection: "column", flex: 1, gap: 5 }}>
@@ -105,8 +106,8 @@ export function StudentCard({ StudentName }: { StudentName: string }) {
 
           <Link
             href={{
-              pathname: "/(tabs)/students/options",
-              params: { name: StudentName },
+              pathname: "/(tutor)/(tabs)/students/options",
+              params: { name: Student.fullName },
             }}
             style={{ alignSelf: "center" }}
           >

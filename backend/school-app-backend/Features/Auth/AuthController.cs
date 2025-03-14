@@ -27,7 +27,7 @@ namespace school_app_backend.Features.Auth
 
             Console.WriteLine(new { Ip = ipAddress, Token = token });
 
-            return Ok(new { token = token, ip = ipAddress });
+            return Ok(new { token = token });
 
         }
 

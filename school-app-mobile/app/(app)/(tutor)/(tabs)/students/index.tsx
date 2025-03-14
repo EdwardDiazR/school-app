@@ -1,5 +1,5 @@
 import { View, Text, Pressable } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Colors } from "@/constants/Colors";
@@ -7,12 +7,22 @@ import { StudentCard } from "@/components/students/StudentCard";
 
 import { Chip, Portal } from "react-native-paper";
 import { StylesConstants } from "@/constants/Styles";
-import { ScrollView } from "react-native-gesture-handler";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
 import { router } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
 
+import * as _tutorService from "@/services/tutorService";
+import { AxiosError } from "axios";
+import {
+  StudentApiResponseForTutor,
+  StudentForTutor,
+} from "@/models/students/Student";
+import { useStudentContext } from "@/context/StudentContext";
 export default function index() {
   const { top } = useSafeAreaInsets();
+
+  const { students, getStudentForTutor } = useStudentContext();
+  useEffect(() => {}, []);
 
   return (
     <View style={{ flex: 1, paddingHorizontal: 5 }}>
@@ -39,7 +49,7 @@ export default function index() {
         <View style={{ flexDirection: "row", gap: 10 }}>
           <Pressable
             onPress={() => {
-              router.push("/(tabs)/students/notificationCenter");
+              router.push("/(tutor)/(tabs)/students/notificationCenter");
             }}
             style={{
               backgroundColor: Colors.brightOrange,
@@ -67,8 +77,12 @@ export default function index() {
           paddingHorizontal: StylesConstants.paddingHorizontal - 5,
         }}
       >
-        <StudentCard StudentName={"Juan Diaz"} />
-        <StudentCard StudentName={"Zara Ramos"} />
+        <FlatList
+          data={students}
+          renderItem={({ item, index }) => {
+            return <StudentCard Student={item} key={Math.random()} />;
+          }}
+        />
       </View>
     </View>
   );

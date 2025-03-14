@@ -57,7 +57,7 @@ export default function options() {
             options={{
               iconName: "medical-services",
               title: "Excusa medica",
-              route: "/(tabs)/students",
+              route: "/(tutor)/(tabs)/students",
 
               iconColor: "red",
             }}
@@ -66,7 +66,7 @@ export default function options() {
             options={{
               iconName: "medication-liquid",
               title: "Registrar condicion medica",
-              route: "/(tabs)/students",
+              route: "/(tutor)/(tabs)/students",
 
               iconColor: "#09a6f3",
             }}
@@ -75,7 +75,7 @@ export default function options() {
             options={{
               iconName: "schedule",
               title: "Solicitar permiso",
-              route: "/(tabs)/students",
+              route: "/(tutor)/(tabs)/students",
 
               iconColor: "#fa6100",
             }}
@@ -84,7 +84,7 @@ export default function options() {
             options={{
               iconName: "school",
               title: "Ver calificaciones",
-              route: "/(tabs)/students",
+              route: "/(tutor)/(tabs)/students",
 
               iconColor: "#ffdd00",
             }}
@@ -93,7 +93,7 @@ export default function options() {
             options={{
               iconName: "summarize",
               title: "Ver reportes del estudiante",
-              route: "/(tabs)/students",
+              route: "/(tutor)/(tabs)/students",
               iconColor: "#04e762",
             }}
           />
@@ -101,7 +101,7 @@ export default function options() {
             options={{
               iconName: "attach-money",
               title: "Pagos",
-              route: "/(tabs)/students",
+              route: "/(tutor)/(tabs)/students",
               iconColor: "#59d102",
             }}
           />

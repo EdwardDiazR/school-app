@@ -32,7 +32,7 @@ namespace school_app_backend.Features.Tutors
         public IActionResult GetStudentsByTutorId(int TutorId)
         {
             var students = _tutorService.GetStudentsByTutorId(TutorId);
-            return Ok(new { data = students  });
+            return Ok(new { data = students.Result  });
         }
 
         [HttpPost("{StudentId:int}/tutors/{TutorId:int}")]

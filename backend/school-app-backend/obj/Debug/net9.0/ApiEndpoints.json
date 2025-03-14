@@ -16,6 +16,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "school_app_backend.Features.Auth.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "LoginDto",
+        "Type": "school_app_backend.Features.Auth.DTOs.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "school_app_backend.Features.Excuses.ExcusesController",
     "Method": "GetExcuseDetails",
     "RelativePath": "api/Excuses",

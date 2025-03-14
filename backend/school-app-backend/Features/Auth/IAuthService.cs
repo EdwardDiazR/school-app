@@ -4,6 +4,6 @@ namespace school_app_backend.Features.Auth
 {
     public interface IAuthService
     {
-        void Login(LoginDto loginDto);
+        Task<object> Login(LoginDto loginDto);
     }
 }

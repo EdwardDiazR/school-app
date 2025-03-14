@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Pressable, Alert } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StylesConstants } from "@/constants/Styles";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { TextInput } from "react-native-paper";
@@ -7,9 +7,15 @@ import { MaterialIcons, Octicons } from "@expo/vector-icons";
 import { Image } from "react-native";
 import { Colors } from "@/constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
-import { router, useRouter } from "expo-router";
+import { router, SplashScreen, useRouter } from "expo-router";
 import { LoginDto } from "@/models/Auth";
 import * as _authService from "@/services/authService";
+import {
+  AuthContext,
+  AuthContextType,
+  useAuth,
+  UserRoles,
+} from "@/context/AuthContext";
 
 export default function login() {
   const CanAccessWithBiometrics = true;
@@ -21,6 +27,8 @@ export default function login() {
   const paddingHorizontalValue = 15;
   const router = useRouter();
 
+ 
+
   const TogglePasswordVisibility = () => {
     SetIsPasswordVisible(!IsPasswordVisible);
   };
@@ -29,18 +37,19 @@ export default function login() {
     const loginDto: LoginDto = {
       isBiometric: CanAccessWithBiometrics,
       username: username,
-      password: password
+      password: password,
     };
 
     _authService.login(loginDto);
   };
 
-  const handleUsername = (e:any) => {
+  const handleUsername = (e: any) => {
     setUsername(e);
   };
-  const handlePassword = (e:any) => {
+  const handlePassword = (e: any) => {
     setPassword(e);
   };
+
   return (
     <View
       style={{

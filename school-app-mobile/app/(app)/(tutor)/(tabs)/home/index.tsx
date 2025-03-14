@@ -1,9 +1,12 @@
 import {
+  Alert,
   Button,
   FlatList,
   NativeScrollEvent,
   NativeSyntheticEvent,
   Pressable,
+  RefreshControl,
+  RefreshControlComponent,
   StyleSheet,
   Text,
   View,
@@ -14,8 +17,8 @@ import { StylesConstants } from "@/constants/Styles";
 import { ScrollView } from "react-native";
 import StudentFeedCard from "@/components/students/FeedCard";
 import FeedCard from "@/components/students/FeedCard";
-import { MaterialIcons } from "@expo/vector-icons";
-import { Divider } from "react-native-paper";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { ActivityIndicator, Divider } from "react-native-paper";
 import NotificationCard from "@/components/notifications/NotificationCard";
 import { NotificationCardInfo } from "@/models/Notification";
 import { Colors } from "@/constants/Colors";
@@ -32,10 +35,27 @@ import Animated, {
   ScrollEvent,
   FadeInDown,
   FadeInUp,
+  BounceInUp,
+  BounceOutUp,
+  BounceIn,
+  BounceInDown,
+  FlipInXDown,
+  FlipInEasyX,
+  FlipInXUp,
+  FlipInYRight,
+  PinwheelIn,
+  RotateInDownLeft,
+  RotateInUpLeft,
+  StretchInX,
+  ZoomIn,
 } from "react-native-reanimated";
 import { Link, router, Stack } from "expo-router";
 import FeedPaymentCard from "@/components/payments/FeedPaymentCard";
 import * as _tutorService from "@/services/tutorService";
+import { useAuth } from "@/context/AuthContext";
+import { AxiosError } from "axios";
+import { StudentForTutor } from "@/models/students/Student";
+import { useStudentContext } from "@/context/StudentContext";
 
 export default function index() {
   const [atTop, setAtTop] = useState<boolean>(true);
@@ -105,19 +125,24 @@ export default function index() {
   });
 
   useEffect(() => {
-     GetInitialData()
-  }, []);
-  useEffect(() => {
-    console.log(atTop, atBottom);
+    // console.log(atTop, atBottom);
   }, [atTop, atBottom]);
 
-  const GetInitialData = async () => {
-    //TODO: Get the tutor Id or user id when loggin or from the token
-    await _tutorService.GetStudentsByTutorId(1)
+  const [IsShowingBanner, SetIsShowingBanner] = useState<boolean>(false);
+
+  const { authState } = useAuth();
+  const { students, getStudentForTutor, errorsList, isLoadingStudents } =
+    useStudentContext();
+
+  const refreshStudentsList = () => {
+    if (authState?.user) getStudentForTutor(authState.user.id);
   };
 
-  const [IsShowingBanner, SetIsShowingBanner] = useState<boolean>(true);
-
+  const reloadStudents = () => {
+    if (authState?.user) {
+      getStudentForTutor(authState.user?.id);
+    }
+  };
   return (
     <View style={{ flex: 1 }}>
       <Stack.Screen
@@ -148,7 +173,7 @@ export default function index() {
                     fontSize: 19,
                   }}
                 >
-                  Hola July,
+                  Hola, {authState?.user?.userName}
                 </Text>
                 <Text
                   style={{
@@ -180,59 +205,70 @@ export default function index() {
       <ScrollView style={{}} showsVerticalScrollIndicator={false}>
         <View style={[styles.container, { marginBottom: 10, gap: 10 }]}>
           {/* Aviso banner */}
-          {/* <Animated.View
-            entering={FadeInUp.duration(900)}
-            style={{
-              backgroundColor: "white",
-              borderRadius: 8,
-              paddingHorizontal: 15,
-              paddingTop: 10,
-              paddingBottom: 17,
-              marginTop: 10,
-              gap: 5,
-              elevation: 5,
-              shadowColor: "red",
-            }}
-          >
-            <View
+          {IsShowingBanner && (
+            <Animated.View
+              entering={FadeInUp.duration(900)}
               style={{
-                flexDirection: "row",
-                alignItems: "center",
+                backgroundColor: "white",
+                borderRadius: 8,
+                paddingHorizontal: 15,
+                paddingTop: 10,
+                paddingBottom: 17,
+                marginTop: 10,
                 gap: 5,
+                elevation: 5,
+                shadowColor: "red",
               }}
             >
-              <MaterialIcons
-                name="lightbulb"
-                color={Colors.brightOrange}
-                size={20}
-              />
-              <Text
+              <View
                 style={{
-                  fontFamily: "MulishBold",
-                  fontSize: 17,
-                  color: Colors.darkOrange,
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
                 }}
               >
-                Anuncio
+                <View
+                  style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+                >
+                  <MaterialIcons
+                    name="lightbulb"
+                    color={Colors.brightOrange}
+                    size={20}
+                  />
+                  <Text
+                    style={{
+                      fontFamily: "MulishBold",
+                      fontSize: 17,
+                      color: Colors.darkOrange,
+                    }}
+                  >
+                    Anuncio
+                  </Text>
+                </View>
+                <MaterialIcons
+                  name="close"
+                  color={Colors.brightOrange}
+                  size={23}
+                />
+              </View>
+              <Text
+                style={{
+                  fontFamily: "MulishRegular",
+                  fontSize: 16,
+                  color: "black",
+                }}
+              >
+                Han sido publicadas las notas correspondientes al periodo
+                Agosto-Diciembre 2025
               </Text>
-            </View>
-            <Text
-              style={{
-                fontFamily: "MulishRegular",
-                fontSize: 16,
-                color: "black",
-              }}
-            >
-              Han sido publicadas las notas correspondientes al periodo
-              Agosto-Diciembre 2025
-            </Text>
-          </Animated.View> */}
-
+            </Animated.View>
+          )}
           <View
             style={{
               flexDirection: "column",
               marginTop: IsShowingBanner ? 5 : 15,
               gap: 7,
+              height: 130,
             }}
           >
             <View
@@ -250,21 +286,117 @@ export default function index() {
                   color: "white",
                 }}
               >
-                Tus estudiantes activos (2)
+                Tus estudiantes activos
               </Text>
             </View>
 
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              showsVerticalScrollIndicator={false}
-              // onScroll={handleScroll}
-              // scrollEventThrottle={50}
-              fadingEdgeLength={50}
+            <View
+              style={{
+                flex: 1,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
-              <FeedCard />
-              <FeedCard />
-            </ScrollView>
+              {!isLoadingStudents &&
+                !errorsList.hasFetchListError &&
+                students && (
+                  <FlatList
+                    data={students}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={false}
+                    fadingEdgeLength={30}
+                    refreshControl={
+                      <RefreshControl
+                        refreshing={false}
+                        onRefresh={refreshStudentsList}
+                      />
+                    }
+                    renderItem={({ item, index }) => {
+                      return <FeedCard Student={item} key={index} />;
+                    }}
+                    ListEmptyComponent={() => (
+                      <View
+                        style={{
+                          flex: 1,
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Text
+                          style={{
+                            fontSize: 14,
+                            color: "white",
+                            fontFamily: "MulishSemiBold",
+                          }}
+                        >
+                          Aun no tienes estudiantes activos!
+                        </Text>
+                      </View>
+                    )}
+                  />
+                )}
+
+              {isLoadingStudents && !errorsList.hasFetchListError && (
+                <Animated.View
+                  entering={ZoomIn.duration(230).easing(Easing.linear)}
+                  style={{
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <ActivityIndicator
+                    size={30}
+                    color="white"
+                    style={{ margin: 10 }}
+                  />
+                  <Text style={{ color: "white", fontFamily: "MulishBold" }}>
+                    Cargando tus estudiantes
+                  </Text>
+                </Animated.View>
+              )}
+
+              {!isLoadingStudents &&
+                !students &&
+                errorsList.hasFetchListError && (
+                  <Pressable
+                    style={{
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: 5,
+                    }}
+                    onPress={reloadStudents}
+                  >
+                    <Text
+                      style={{
+                        fontSize: 15,
+                        fontFamily: "MulishSemiBold",
+                        color: "white",
+                      }}
+                    >
+                      Hubo un error al cargar
+                    </Text>
+                    <View
+                      style={{
+                        backgroundColor: "white",
+                        elevation: 5,
+                        borderRadius: 20,
+                        padding: 10,
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Ionicons
+                        name="reload"
+                        size={19}
+                        color={Colors.blueMedium}
+                      />
+                    </View>
+                  </Pressable>
+                )}
+            </View>
           </View>
 
           <View style={{ flexDirection: "column", marginTop: 7, gap: 4 }}>
@@ -292,7 +424,9 @@ export default function index() {
               <Pressable
                 style={{ flexDirection: "row", gap: 2, alignItems: "center" }}
                 onPress={() =>
-                  router.push("(tutor)/(tabs)/students/notificationCenter")
+                  router.push(
+                    "/(app)/(tutor)/(tabs)/students/notificationCenter"
+                  )
                 }
               >
                 <Text
@@ -323,10 +457,12 @@ export default function index() {
               }}
               ListFooterComponent={() => (
                 <>
-                  {Notifications.length > 3 && (
+                  {/* {Notifications.length > 3 && (
                     <Pressable
                       onPress={() =>
-                        router.push("(tutor)/(tabs)/students/notificationCenter")
+                        router.push(
+                          "/(tutor)/(tabs)/students/notificationCenter"
+                        )
                       }
                       style={{
                         backgroundColor: "white",
@@ -350,12 +486,11 @@ export default function index() {
                         Ver todas
                       </Text>
                     </Pressable>
-                  )}
+                  )} */}
                 </>
               )}
             />
           </View>
-
           {/* Payments Section */}
           <View style={{ flexDirection: "column", marginTop: 6, gap: 5 }}>
             <View
@@ -381,7 +516,7 @@ export default function index() {
               </View>
               <Pressable
                 style={{ flexDirection: "row", gap: 2, alignItems: "center" }}
-                onPress={() => router.push("(tutor)/(tabs)/payments")}
+                onPress={() => router.push("/(app)/(tutor)/(tabs)/payments")}
               >
                 <Text
                   style={{

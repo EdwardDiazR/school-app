@@ -2,21 +2,22 @@ import { View, Text, Image, Pressable } from "react-native";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
+import { StudentForTutor } from "@/models/students/Student";
 
-export default function FeedCard() {
+export default function FeedCard({ Student }: { Student: StudentForTutor }) {
   const ImageSize = 60;
 
   return (
     <View
       style={{
         backgroundColor: "white",
-        elevation: 1,
+        elevation: 2,
         borderRadius: 7,
         padding: 10,
         flexDirection: "row",
         alignItems: "center",
         gap: 10,
-        marginEnd:7
+        marginEnd: 7,
       }}
     >
       <View
@@ -50,7 +51,9 @@ export default function FeedCard() {
         </View>
       </View>
       <View style={{ flex: 1 }}>
-        <Text style={{ fontFamily: "MulishBold" }}>Jose</Text>
+        <Text style={{ fontFamily: "MulishBold" }}>
+          {Student.fullName.split(" ")[0]}
+        </Text>
         <Text style={{ fontFamily: "MulishRegular" }}>Pre-Kinder</Text>
       </View>
 

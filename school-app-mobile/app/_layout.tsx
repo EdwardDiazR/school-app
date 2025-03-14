@@ -7,13 +7,21 @@ import { useFonts } from "expo-font";
 import { Href, Redirect, router, Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import React from "react";
 import "react-native-reanimated";
 import { Gesture, GestureHandlerRootView } from "react-native-gesture-handler";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { BottomSheetProvider } from "@gorhom/bottom-sheet/lib/typescript/contexts";
+import {
+  AuthContext,
+  AuthContextType,
+  AuthProvider,
+  useAuth,
+  UserRoles,
+} from "@/context/AuthContext";
+import { StudentProvider } from "@/context/StudentContext";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -23,7 +31,6 @@ export default function RootLayout() {
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     MulishRegular: require("../assets/fonts/Mulish-Regular.ttf"),
-
     MulishBold: require("../assets/fonts/Mulish-Bold.ttf"),
     MulishSemiBold: require("../assets/fonts/Mulish-SemiBold.ttf"),
   });
@@ -39,22 +46,21 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <ThemeProvider value={colorScheme === "light" ? DarkTheme : DefaultTheme}>
-        <Redirect
-          href={{
-            pathname: "/auth/login" ,
-          }}
-        />
-        <Stack screenOptions={{}} initialRouteName="auth">
-          <Stack.Screen name="auth" options={{ headerShown: false }} />
-          <Stack.Screen name="(tutor)" options={{ headerShown: false }} />
-          <Stack.Screen name="(teacher)" options={{ headerShown: false }} />
-          <Stack.Screen name="(admin)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
-        <StatusBar style="auto" />
-      </ThemeProvider>
-    </GestureHandlerRootView>
+    <AuthProvider>
+      <StudentProvider>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <ThemeProvider
+            value={colorScheme === "light" ? DarkTheme : DefaultTheme}
+          >
+            <Stack screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="index" options={{ headerShown: false }} />
+              <Stack.Screen name="auth" options={{ headerShown: false }} />
+              <Stack.Screen name="(app)" options={{ headerShown: false }} />
+            </Stack>
+            <StatusBar style="auto" />
+          </ThemeProvider>
+        </GestureHandlerRootView>
+      </StudentProvider>
+    </AuthProvider>
   );
 }

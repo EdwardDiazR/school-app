@@ -36,7 +36,7 @@ namespace school_app_backend.Features.Auth.Services
             {
             new Claim("username",username),
             new Claim("UserId",UserId.ToString()),
-            new Claim(ClaimTypes.Role,"Admin"),
+            new Claim(ClaimTypes.Role,"Tutor"),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 
@@ -45,7 +45,7 @@ namespace school_app_backend.Features.Auth.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddHours(1),
+                Expires = DateTime.UtcNow.AddDays(1),
                 Issuer = "https://localhost:7251",
                 Audience = "https://localhost:7251",
                 SigningCredentials = creds

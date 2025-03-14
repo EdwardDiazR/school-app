@@ -18,13 +18,11 @@ export default function _layout() {
     <Tabs
       initialRouteName="home"
       screenOptions={{
-        animation: "shift",
+        animation: "none",
         headerShown: false,
         tabBarItemStyle: { marginTop: 5 },
-
         tabBarStyle: {
           height: 65,
-
           elevation: 1,
           borderWidth: 0,
           borderColor: "transparent",

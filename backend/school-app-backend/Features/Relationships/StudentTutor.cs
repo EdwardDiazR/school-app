@@ -3,12 +3,14 @@
 //Esta clase hace referencia a la tabla intermedia para la relacion estudiante y tutores
 using school_app_backend.Features.Students;
 using school_app_backend.Features.Tutors;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace school_app_backend.Features.DbRelationships
 {
     public class StudentTutor
     {
+        [Key]
         public int Id { get; set; }
         [ForeignKey("Tutor")]
         public int TutorId { get; set; }

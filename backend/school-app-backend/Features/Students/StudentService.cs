@@ -36,23 +36,46 @@ namespace school_app_backend.Features.Students
         }
         public Student GetStudentById(int StudentId)
         {
-            var s = new Student()
+            if (_db.Students.Count() <= 2)
             {
+                var s = new Student()
+                {
+                    Id = 1,
+                    ActualGrade = 0,
+                    CreatedBy = 1,
+                    CreationDate = DateTime.Now,
+                    DateOfBirth = DateTime.Now,
+                    FirstName = "Ju",
+                    FullName = "Maria",
+                    Gender = 'M',
+                    IsActive = true,
+                    IsDeleted = false,
+                    LastName = "a",
+                    TutorQuantity = 1
+                };
 
-                ActualGrade = 0,
-                CreatedBy = 1,
-                CreationDate = DateTime.Now,
-                DateOfBirth = DateTime.Now,
-                FirstName = "Ju",
-                FullName = "Julianny Matos",
-                Gender = 'M',
-                IsActive = true,
-                IsDeleted = false,
-                LastName = "a",
-                TutorQuantity = 1
-            };
-            _db.Students.Add(s);
-            _db.SaveChanges();
+
+
+                var ss = new Student()
+                {
+                    Id = 2,
+                    ActualGrade = 0,
+                    CreatedBy = 1,
+                    CreationDate = DateTime.Now,
+                    DateOfBirth = DateTime.Now,
+                    FirstName = "Ju",
+                    FullName = "Jose",
+                    Gender = 'M',
+                    IsActive = true,
+                    IsDeleted = false,
+                    LastName = "a",
+                    TutorQuantity = 1
+                };
+                _db.Students.Add(s);
+                _db.Students.Add(ss);
+
+                _db.SaveChanges();
+            }
             //_db.Students.Where(s => EF.Functions.Like(s.FullName, "Nombre"));
             //TODO: FILTRAR LOS ESTUDIANTES DE LA CLASE DE DICHO PROFESOR
 
@@ -64,23 +87,31 @@ namespace school_app_backend.Features.Students
         }
         public async Task<StudentResponseToTutor> GetStudentByIdToTutor(int StudentId, int TutorId)
         {
-            var s = new Student()
-            {
+            _db.Database.IsInMemory();
 
-                ActualGrade = 0,
-                CreatedBy = 1,
-                CreationDate = DateTime.Now,
-                DateOfBirth = DateTime.Now,
-                FirstName = "Ju",
-                FullName = "Julianny Matos",
-                Gender = 'M',
-                IsActive = true,
-                IsDeleted = false,
-                LastName = "a",
-                TutorQuantity = 1
-            };
-            _db.Students.Add(s);
-            _db.SaveChanges();
+            if (_db.Students.Count() <= 2)
+            {
+                var s = new Student()
+                {
+                    Id = 1,
+                    ActualGrade = 0,
+                    CreatedBy = 1,
+                    CreationDate = DateTime.Now,
+                    DateOfBirth = DateTime.Now,
+                    FirstName = "Ju",
+                    FullName = "Maria",
+                    Gender = 'M',
+                    IsActive = true,
+                    IsDeleted = false,
+                    LastName = "a",
+                    TutorQuantity = 1
+                };
+
+                _db.Students.Add(s);
+
+
+                _db.SaveChanges();
+            }
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Student, StudentResponseToTutor>());
             var mapper = config.CreateMapper();
             //_db.Students.Where(s => EF.Functions.Like(s.FullName, "Nombre"));
@@ -111,7 +142,7 @@ namespace school_app_backend.Features.Students
 
             var s = new Student()
             {
-             
+
                 ActualGrade = 0,
                 CreatedBy = 1,
                 CreationDate = DateTime.Now,
