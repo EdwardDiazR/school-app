@@ -14,6 +14,7 @@ namespace school_app_backend.Features.Auth
             var user = await _db.Users.FirstAsync(u => (u.Username == loginDto.Username) && u.Password == loginDto.Password);
 
 
+            //TODO Return user usefull data base on role
             switch (user.UserType)
             {
                 case "Tutor":

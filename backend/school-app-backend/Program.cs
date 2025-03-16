@@ -7,13 +7,13 @@ using school_app_backend.Features.Auth.Interfaces;
 using school_app_backend.Features.Auth.Services;
 using school_app_backend.Features.Students;
 using school_app_backend.Features.Tutors;
+using school_app_backend.Middlewares;
 using System;
 using System.Text;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var jwtKey = builder.Configuration["Jwt:SecretKey"];
-var jwtIssuer = builder.Configuration["Jwt:Issuer"];
 // Add services to the container.
 
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -33,6 +33,8 @@ builder.Services.AddAuthentication(options =>
 
 }).AddJwtBearer(options =>
 {
+    var jwtKey = builder.Configuration["Jwt:SecretKey"];
+    var jwtIssuer = builder.Configuration["Jwt:Issuer"];
 
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -238,6 +240,7 @@ builder.Services.AddLogging(logging =>
     logging.AddConsole();
 });
 var app = builder.Build();
+app.UseMiddleware<RequestLoggingMiddleware>(); // Agrega el middleware de logging
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

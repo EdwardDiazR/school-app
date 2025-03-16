@@ -37,7 +37,7 @@ namespace school_app_backend.Features.Tutors
 
         [HttpPost("{StudentId:int}/tutors/{TutorId:int}")]
         [Authorize(Policy = "Admin")]
-        public IActionResult AssociateTutor(int StudentId, int TutorId)
+        public IActionResult AssociateTutorToStudent(int StudentId, int TutorId)
         {
             ClaimsPrincipal Token = User;
             var UserIdFromToken = _tokenService.GetUserId(Token);
@@ -48,7 +48,7 @@ namespace school_app_backend.Features.Tutors
 
         [HttpDelete("{StudentId:int}/tutors/{TutorId:int}")]
         [Authorize(Policy = "")]
-        public IActionResult DeleteTutor(int StudentId, int TutorId)
+        public IActionResult DeleteTutorFromStudent(int StudentId, int TutorId)
         {
 
             ClaimsPrincipal Token = User;

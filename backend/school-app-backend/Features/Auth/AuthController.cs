@@ -25,9 +25,12 @@ namespace school_app_backend.Features.Auth
 
             string token = _jwtService.GenerateToken(1, LoginDto.Username);
 
-            Console.WriteLine(new { Ip = ipAddress, Token = token });
 
-            return Ok(new { token = token });
+
+            return Ok(new
+            {
+                token = token
+            });
 
         }
 

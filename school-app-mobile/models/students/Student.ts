@@ -11,9 +11,9 @@ export interface Student {
   pictureUrl: string;
 }
 
-export type StudentForTutor = Pick<Student, "fullName">;
+export type StudentForTutor = Pick<Student, "id" | "fullName" | "actualGrade">;
 
 export interface StudentApiResponseForTutor {
-  data:  StudentForTutor[] ;
+  data: StudentForTutor[];
 }
 export type StudentApiResponseForTeacher = Pick<Student, "fullName">;

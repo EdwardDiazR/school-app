@@ -25,10 +25,10 @@ export default function index() {
   useEffect(() => {}, []);
 
   return (
-    <View style={{ flex: 1, paddingHorizontal: 5 }}>
+    <View style={{ flex: 1, paddingHorizontal: 5, gap: 8 }}>
       <LinearGradient
         colors={[Colors.blueMedium, Colors.blueSky, Colors.blueMedium]}
-        start={{ x: 0.05, y: 0.9 }}
+        start={{ x: 0.15, y: 1.9 }}
         end={{ x: 1.4, y: 0.01 }}
         dither
         style={{
@@ -49,7 +49,7 @@ export default function index() {
         <View style={{ flexDirection: "row", gap: 10 }}>
           <Pressable
             onPress={() => {
-              router.push("/(tutor)/(tabs)/students/notificationCenter");
+              router.push("/(app)/(tutor)/(tabs)/students/notificationCenter");
             }}
             style={{
               backgroundColor: Colors.brightOrange,

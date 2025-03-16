@@ -9,6 +9,7 @@ const tintColorDark = "#fff";
 export const Colors = {
   blueMedium: "#0069FF",
   blueSky: "#0D92F4",
+  blueAqua: "#00b4d8",
   darkOrange: "#fe7e1b",
   brightOrange: "#ff8500",
 

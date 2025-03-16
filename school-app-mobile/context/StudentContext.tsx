@@ -51,10 +51,13 @@ const StudentProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const getStudentForTutor = (tutorId: number) => {
     setIsLoadingStudents(true);
+    setErrorsList({})
 
     return _tutorService
       .GetStudentsByTutorId(tutorId)
       .then((r) => {
+        console.log(r.data.data);
+        
         let students = r.data.data;
         setStudents(students);
       })

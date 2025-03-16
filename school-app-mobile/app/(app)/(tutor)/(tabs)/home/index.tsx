@@ -1,7 +1,10 @@
 import {
   Alert,
   Button,
+  Dimensions,
   FlatList,
+  Image,
+  ImageBackground,
   NativeScrollEvent,
   NativeSyntheticEvent,
   Pressable,
@@ -18,7 +21,7 @@ import { ScrollView } from "react-native";
 import StudentFeedCard from "@/components/students/FeedCard";
 import FeedCard from "@/components/students/FeedCard";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { ActivityIndicator, Divider } from "react-native-paper";
+import { ActivityIndicator, Badge, Divider } from "react-native-paper";
 import NotificationCard from "@/components/notifications/NotificationCard";
 import { NotificationCardInfo } from "@/models/Notification";
 import { Colors } from "@/constants/Colors";
@@ -56,12 +59,14 @@ import { useAuth } from "@/context/AuthContext";
 import { AxiosError } from "axios";
 import { StudentForTutor } from "@/models/students/Student";
 import { useStudentContext } from "@/context/StudentContext";
+import Carousel, { Pagination } from "react-native-reanimated-carousel";
+import { BlurView } from "expo-blur";
 
 export default function index() {
   const [atTop, setAtTop] = useState<boolean>(true);
   const [atBottom, setAtBottom] = useState<boolean>(false);
   const { top } = useSafeAreaInsets();
-  const MAX_VISIBLE_ITEMS = 2;
+  const MAX_VISIBLE_ITEMS = 1;
 
   const date = new Date();
   const SpanishDate = new Intl.DateTimeFormat("es-ES", {
@@ -75,8 +80,8 @@ export default function index() {
     {
       Category: "Salud",
       Date: date.toLocaleDateString("es-ES"),
-      Description: "El niño Alan ha estado presentando fiebre el dia de hoy",
-      student: "Alan Ramos",
+      Description: "Maria ha estado presentando fiebre el dia de hoy.",
+      student: "Maria",
       From: "Maria Perez",
       SubmitterPosition: "Prof. de Matematicas",
       IsRead: false,
@@ -85,28 +90,28 @@ export default function index() {
       Category: "Notas",
       Date: date.toLocaleDateString("es-ES"),
       Description: "Tenemos entrega de notas para el dia 5 de marzo",
-      student: "Alan Ramos",
+      student: "Maria",
       From: "Maria Perez",
       SubmitterPosition: "Prof. de Matematicas",
-      IsRead: true,
+      IsRead: false,
     },
     {
       Category: "Reunion",
       Date: date.toLocaleDateString("es-ES"),
       Description: "Tenemos entrega de notas para el dia 5 de marzo",
-      student: "Alan Ramos",
-      From: "Luisa Diaz",
-      SubmitterPosition: "Directora",
-      IsRead: true,
-    },
-    {
-      Category: "Reunion",
-      Date: date.toLocaleDateString("es-ES"),
-      Description: "Tenemos entrega de notas para el dia 5 de marzo",
-      student: "Alan Ramos",
+      student: "Maria",
       From: "Luisa Diaz",
       SubmitterPosition: "Directora",
       IsRead: false,
+    },
+    {
+      Category: "Reunion",
+      Date: date.toLocaleDateString("es-ES"),
+      Description: "Tenemos entrega de notas para el dia 5 de marzo",
+      student: "Maria",
+      From: "Luisa Diaz",
+      SubmitterPosition: "Directora",
+      IsRead: true,
     },
   ];
 
@@ -143,8 +148,12 @@ export default function index() {
       getStudentForTutor(authState.user?.id);
     }
   };
+
+  const goToStudentDetails = (id: number) => {};
+  const width = Dimensions.get("window").width;
+
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "" }}>
       <Stack.Screen
         options={{
           headerShown: true,
@@ -157,42 +166,47 @@ export default function index() {
             >
               <View
                 style={{
-                  elevation: 5,
                   paddingTop: top + 5,
                   backgroundColor: "white",
                   borderWidth: 0,
-                  borderBottomEndRadius: 10,
-                  borderBottomStartRadius: 10,
+                  borderBottomEndRadius: 20,
+                  borderBottomStartRadius: 20,
                   paddingHorizontal: StylesConstants.paddingHorizontal,
                   paddingVertical: 10,
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
                 }}
               >
-                <Text
-                  style={{
-                    fontFamily: "MulishSemiBold",
-                    fontSize: 19,
-                  }}
-                >
-                  Hola, {authState?.user?.userName}
-                </Text>
-                <Text
-                  style={{
-                    fontFamily: "MulishRegular",
-                    fontSize: 17,
-                    color: "gray",
-                  }}
-                >
-                  {SpanishDate[0].toUpperCase().concat(SpanishDate.slice(1))}
-                </Text>
+                <View style={{ flexDirection: "column" }}>
+                  <Text
+                    style={{
+                      fontFamily: "MulishSemiBold",
+                      fontSize: 19,
+                    }}
+                  >
+                    Hola, {authState?.user?.userName}
+                  </Text>
+                  <Text
+                    style={{
+                      fontFamily: "MulishRegular",
+                      fontSize: 17,
+                      color: "gray",
+                    }}
+                  >
+                    {SpanishDate[0].toUpperCase().concat(SpanishDate.slice(1))}
+                  </Text>
+                </View>
+                <Ionicons name="menu-sharp" size={30} />
               </View>
             </View>
           ),
         }}
       />
       <LinearGradient
-        colors={[Colors.blueMedium, Colors.blueSky, Colors.blueMedium]}
-        start={{ x: 0.1, y: 0.9 }}
-        end={{ x: 0.4, y: 0.01 }}
+        colors={["#00b4d8", "#00b4d8", Colors.blueMedium]}
+        start={{ x: 1.6, y: 1.8 }}
+        end={{ x: 0.1, y: 0.01 }}
         dither
         style={{
           position: "absolute",
@@ -263,12 +277,14 @@ export default function index() {
               </Text>
             </Animated.View>
           )}
+
+          {/* ----------------------------Students-section----------------------------  */}
           <View
             style={{
               flexDirection: "column",
               marginTop: IsShowingBanner ? 5 : 15,
-              gap: 7,
-              height: 130,
+              gap: 10,
+              minHeight: 130,
             }}
           >
             <View
@@ -309,11 +325,19 @@ export default function index() {
                     refreshControl={
                       <RefreshControl
                         refreshing={false}
+                        colors={[Colors.blueSky, Colors.brightOrange]}
+                        progressBackgroundColor={"white"}
                         onRefresh={refreshStudentsList}
                       />
                     }
                     renderItem={({ item, index }) => {
-                      return <FeedCard Student={item} key={index} />;
+                      return (
+                        <FeedCard
+                          Student={item}
+                          key={index}
+                          goToDetails={goToStudentDetails}
+                        />
+                      );
                     }}
                     ListEmptyComponent={() => (
                       <View
@@ -336,7 +360,7 @@ export default function index() {
                     )}
                   />
                 )}
-
+              {/* -----------------------Loading-Students-Animation----------------------- */}
               {isLoadingStudents && !errorsList.hasFetchListError && (
                 <Animated.View
                   entering={ZoomIn.duration(230).easing(Easing.linear)}
@@ -356,7 +380,7 @@ export default function index() {
                   </Text>
                 </Animated.View>
               )}
-
+              {/*-----------------------Fetch-Error-Msj-&-TryAgain-----------------------*/}
               {!isLoadingStudents &&
                 !students &&
                 errorsList.hasFetchListError && (
@@ -398,8 +422,8 @@ export default function index() {
                 )}
             </View>
           </View>
-
-          <View style={{ flexDirection: "column", marginTop: 7, gap: 4 }}>
+          {/* --------------------------Notifications-Section------------------------- */}
+          <View style={{ flexDirection: "column", marginTop: 7, gap: 7 }}>
             <View
               style={{
                 justifyContent: "space-between",
@@ -421,25 +445,47 @@ export default function index() {
                   Notificaciones
                 </Text>
               </View>
-              <Pressable
-                style={{ flexDirection: "row", gap: 2, alignItems: "center" }}
-                onPress={() =>
-                  router.push(
-                    "/(app)/(tutor)/(tabs)/students/notificationCenter"
-                  )
-                }
+              <Link
+                href={{
+                  pathname: "/(app)/(tutor)/notificationCenter",
+                }}
+                asChild
               >
-                <Text
-                  style={{
-                    fontFamily: "MulishBold",
-                    fontSize: 16,
-                    color: "white",
-                  }}
+                <Pressable
+                  style={{ flexDirection: "row", gap: 3, alignItems: "center" }}
                 >
-                  Ver mas
-                </Text>
-                <MaterialIcons name="chevron-right" size={25} color={"white"} />
-              </Pressable>
+                  <View
+                    style={{
+                      backgroundColor: "red",
+                      borderRadius: 50,
+                      height: 20,
+                      width: 20,
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Text style={{ color: "white", fontFamily: "MulishBold" }}>
+                      {Notifications.reduce((count, notification) => {
+                        return notification.IsRead == false ? count + 1 : count;
+                      }, 0)}
+                    </Text>
+                  </View>
+                  <Text
+                    style={{
+                      fontFamily: "MulishBold",
+                      fontSize: 16,
+                      color: "white",
+                    }}
+                  >
+                    Ver mas
+                  </Text>
+                  <MaterialIcons
+                    name="chevron-right"
+                    size={25}
+                    color={"white"}
+                  />
+                </Pressable>
+              </Link>
             </View>
             <FlatList
               scrollEnabled={false}
@@ -491,8 +537,121 @@ export default function index() {
               )}
             />
           </View>
-          {/* Payments Section */}
-          <View style={{ flexDirection: "column", marginTop: 6, gap: 5 }}>
+
+          {/* --------------------------Events-Section------------------------- */}
+          <View style={{ flexDirection: "column", marginTop: 7, gap: 7 }}>
+            <View
+              style={{
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexDirection: "row",
+              }}
+            >
+              <View
+                style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+              >
+                <MaterialIcons name="event" size={25} color={"white"} />
+                <Text
+                  style={{
+                    fontFamily: "MulishBold",
+                    fontSize: 16.5,
+                    color: "white",
+                  }}
+                >
+                  Actividades recientes
+                </Text>
+              </View>
+              <Pressable
+                style={{ flexDirection: "row", gap: 2, alignItems: "center" }}
+                onPress={() =>
+                  router.push(
+                    "/(app)/(tutor)/(tabs)/students/notificationCenter"
+                  )
+                }
+              >
+                <Text
+                  style={{
+                    fontFamily: "MulishBold",
+                    fontSize: 16,
+                    color: "white",
+                  }}
+                >
+                  Ver mas
+                </Text>
+                <MaterialIcons name="chevron-right" size={25} color={"white"} />
+              </Pressable>
+            </View>
+
+            <Carousel
+              data={[
+                {
+                  link: "https://www.merakilane.com/wp-content/uploads/2023/08/First-Day-of-School-Activities-for-Kindergarten-featured.png",
+                },
+                {
+                  link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG0AdMj1RZJWdclEw4PP0bfkkW9foVS4yYUA&s",
+                },
+              ]}
+              width={width - StylesConstants.paddingHorizontal - 5}
+              style={{
+                alignSelf: "center",
+                justifyContent: "center",
+                borderRadius: 10,
+                overflow: "hidden",
+              }}
+              height={155}
+              snapEnabled
+              loop={true}
+              autoPlay
+              autoPlayInterval={3000}
+              renderItem={({ item, index }) => (
+                <View style={{}}>
+                  <ImageBackground
+                    style={{ height: "100%", overflow: "hidden" }}
+                    source={{
+                      uri: item.link,
+                    }}
+                    resizeMode="cover"
+                  >
+                    <BlurView
+                      intensity={25}
+                      tint="systemMaterialDark"
+                      experimentalBlurMethod="dimezisBlurView"
+                      style={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        overflow: "hidden",
+                        borderTopEndRadius: 10,
+                        borderTopStartRadius: 10,
+                      }}
+                    >
+                      <View
+                        style={{
+                          padding: 7,
+                          flex: 1,
+                          overflow: "hidden",
+                        }}
+                      >
+                        <Text
+                          style={{
+                            fontFamily: "MulishBold",
+                            color: "white",
+                            fontSize: 14,
+                          }}
+                        >
+                          12/3/25 Evento de colores
+                        </Text>
+                      </View>
+                    </BlurView>
+                  </ImageBackground>
+                </View>
+              )}
+            />
+          </View>
+
+          {/* ----------------------------Payments-Section---------------------------- */}
+          <View style={{ flexDirection: "column", marginTop: 7, gap: 7 }}>
             <View
               style={{
                 justifyContent: "space-between",
@@ -553,7 +712,7 @@ const styles = StyleSheet.create({
   partialItem: {
     position: "relative",
     overflow: "hidden",
-    height: 40, // Hacemos el último item más pequeño para mostrar solo una parte
+    height: 40,
   },
   text: {
     fontSize: 16,

@@ -211,7 +211,7 @@
   },
   {
     "ContainingType": "school_app_backend.Features.Tutors.TutorController",
-    "Method": "AssociateTutor",
+    "Method": "AssociateTutorToStudent",
     "RelativePath": "api/tutors/{StudentId}/tutors/{TutorId}",
     "HttpMethod": "POST",
     "IsController": true,
@@ -232,7 +232,7 @@
   },
   {
     "ContainingType": "school_app_backend.Features.Tutors.TutorController",
-    "Method": "DeleteTutor",
+    "Method": "DeleteTutorFromStudent",
     "RelativePath": "api/tutors/{StudentId}/tutors/{TutorId}",
     "HttpMethod": "DELETE",
     "IsController": true,

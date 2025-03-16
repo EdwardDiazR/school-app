@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import React, { useEffect } from "react";
-import { Tabs } from "expo-router";
+import { router, Tabs } from "expo-router";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import { BlurView } from "expo-blur";
@@ -32,7 +32,7 @@ export default function _layout() {
         tabBarBackground() {
           return (
             <BlurView
-              intensity={60}
+              intensity={0}
               tint="systemUltraThinMaterialDark"
               style={{
                 flex: 1,

@@ -4,7 +4,11 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { NotificationCardInfo } from "@/models/Notification";
 import { StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import Animated, { BounceIn, BounceInDown } from "react-native-reanimated";
+import Animated, {
+  BounceIn,
+  BounceInDown,
+  FadeIn,
+} from "react-native-reanimated";
 
 export default function NotificationCard({
   NotificationInfo,
@@ -45,7 +49,7 @@ export default function NotificationCard({
         />
       )}
       <View style={{ padding: 10 }}>
-        <View style={{}}>
+        <View style={{ gap: 4 }}>
           <View
             style={{
               flexDirection: "row",
@@ -85,12 +89,18 @@ export default function NotificationCard({
             </Text>
           </View>
           <Text
-            style={{ fontFamily: "MulishRegular", color: "gray", fontSize: 13 }}
+            style={{
+              fontFamily: "MulishSemiBold",
+              color: "gray",
+              fontSize: 13,
+            }}
           >
             De: {NotificationInfo.From} | {NotificationInfo.SubmitterPosition}{" "}
           </Text>
         </View>
-        <Text style={{ fontSize: 13.5 }}>{NotificationInfo.Description}</Text>
+        <Text style={{ fontSize: 13.5, fontFamily: "MulishRegular" }}>
+          {NotificationInfo.Description}
+        </Text>
       </View>
     </Animated.View>
   );
@@ -99,10 +109,11 @@ export default function NotificationCard({
 const styles = StyleSheet.create({
   item: {
     backgroundColor: "white",
-    borderRadius: 10,
+    borderRadius: 8,
     gap: 5,
     marginVertical: 5,
-    elevation: 1,
+    elevation: 5,
+    padding: 3,
   },
   partialItem: {
     position: "relative",

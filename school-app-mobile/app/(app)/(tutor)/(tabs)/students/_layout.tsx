@@ -8,6 +8,7 @@ export default function _layout() {
       screenOptions={{
         animation: "none",
       }}
+      initialRouteName="index"
     >
       <Stack.Screen
         name="index"
@@ -25,14 +26,7 @@ export default function _layout() {
           headerTitleStyle: { fontFamily: "MulishBold" },
         }}
       />
-      <Stack.Screen
-        name="notificationCenter"
-        options={{
-          headerShown: true,
-          title: "Centro de notificaciones ",
-          headerTitleStyle: { fontFamily: "MulishBold" },
-        }}
-      />
+      
     </Stack>
   );
 }

@@ -1,5 +1,5 @@
 import { View, Text, GestureResponderEvent, FlatList } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { Colors } from "@/constants/Colors";
 import { Chip } from "react-native-paper";
@@ -12,6 +12,8 @@ export default function notificationCenter() {
   const [filterMode, SetFilterMode] = useState<"all" | "read" | "unread">(
     "all"
   );
+  useEffect(()=>{console.log("En notifica");
+  },[])
   const date = new Date();
   const SpanishDate = new Intl.DateTimeFormat("es-ES", {
     weekday: "long",

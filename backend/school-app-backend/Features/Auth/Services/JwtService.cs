@@ -55,7 +55,7 @@ namespace school_app_backend.Features.Auth.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var jwt = tokenHandler.WriteToken(token);
 
-            Console.WriteLine(jwt);
+            //Console.WriteLine(jwt);
             return jwt;
         }
     }

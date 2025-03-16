@@ -36,46 +36,6 @@ namespace school_app_backend.Features.Students
         }
         public Student GetStudentById(int StudentId)
         {
-            if (_db.Students.Count() <= 2)
-            {
-                var s = new Student()
-                {
-                    Id = 1,
-                    ActualGrade = 0,
-                    CreatedBy = 1,
-                    CreationDate = DateTime.Now,
-                    DateOfBirth = DateTime.Now,
-                    FirstName = "Ju",
-                    FullName = "Maria",
-                    Gender = 'M',
-                    IsActive = true,
-                    IsDeleted = false,
-                    LastName = "a",
-                    TutorQuantity = 1
-                };
-
-
-
-                var ss = new Student()
-                {
-                    Id = 2,
-                    ActualGrade = 0,
-                    CreatedBy = 1,
-                    CreationDate = DateTime.Now,
-                    DateOfBirth = DateTime.Now,
-                    FirstName = "Ju",
-                    FullName = "Jose",
-                    Gender = 'M',
-                    IsActive = true,
-                    IsDeleted = false,
-                    LastName = "a",
-                    TutorQuantity = 1
-                };
-                _db.Students.Add(s);
-                _db.Students.Add(ss);
-
-                _db.SaveChanges();
-            }
             //_db.Students.Where(s => EF.Functions.Like(s.FullName, "Nombre"));
             //TODO: FILTRAR LOS ESTUDIANTES DE LA CLASE DE DICHO PROFESOR
 
@@ -85,34 +45,20 @@ namespace school_app_backend.Features.Students
 
             return student;
         }
+        public static readonly Dictionary<int, string> Grados = new Dictionary<int, string>
+    {
+        { 1, "Preescolar" },
+        { 2, "Primaria" },
+        { 3, "Secundaria" },
+        { 4, "Bachillerato" }
+            ,{ 6, "Bachillerato" }
+    };
         public async Task<StudentResponseToTutor> GetStudentByIdToTutor(int StudentId, int TutorId)
         {
-            _db.Database.IsInMemory();
-
-            if (_db.Students.Count() <= 2)
-            {
-                var s = new Student()
-                {
-                    Id = 1,
-                    ActualGrade = 0,
-                    CreatedBy = 1,
-                    CreationDate = DateTime.Now,
-                    DateOfBirth = DateTime.Now,
-                    FirstName = "Ju",
-                    FullName = "Maria",
-                    Gender = 'M',
-                    IsActive = true,
-                    IsDeleted = false,
-                    LastName = "a",
-                    TutorQuantity = 1
-                };
-
-                _db.Students.Add(s);
 
 
-                _db.SaveChanges();
-            }
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Student, StudentResponseToTutor>());
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Student, StudentResponseToTutor>()
+            .ForMember(dest => dest.ActualGrade, opt => opt.MapFrom(src => Grados.ContainsKey(src.ActualGrade) ? Grados[src.ActualGrade] : "Desconocido")));
             var mapper = config.CreateMapper();
             //_db.Students.Where(s => EF.Functions.Like(s.FullName, "Nombre"));
             //TODO: FILTRAR LOS ESTUDIANTES DE LA CLASE DE DICHO PROFESOR
@@ -129,6 +75,8 @@ namespace school_app_backend.Features.Students
                 .Where(student => student.Id == StudentId)
                 .Select(s => mapper.Map<StudentResponseToTutor>(s))
                 .FirstOrDefaultAsync();
+
+
 
             if (student == null)
             {
@@ -171,7 +119,6 @@ namespace school_app_backend.Features.Students
 
             return student;
         }
-        ////
         public async Task<List<Student>> GetStudentByName(string name)
         {
             var students = await _db.Students
@@ -222,7 +169,6 @@ namespace school_app_backend.Features.Students
             _db.Students.Remove(student);
             await _db.SaveChangesAsync();
         }
-
         public async Task<IEnumerable<Tutor>> GetTutorsByStudentId(int StudentId)
         {
             //TODO: Implement db

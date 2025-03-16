@@ -9,8 +9,6 @@ namespace school_app_backend.Features.Tutors
     {
         private readonly ApplicationDbContext _db;
         public TutorService(ApplicationDbContext db) { _db = db; }
-
-
         public async Task<IEnumerable<Tutor>> GetTutors()
         {
             IEnumerable<Tutor> tutors = await _db.Tutors.ToListAsync();
@@ -36,7 +34,6 @@ namespace school_app_backend.Features.Tutors
         {
 
         }
-
         public async void DeleteTutor(int TutorId)
         {
 
@@ -57,6 +54,45 @@ namespace school_app_backend.Features.Tutors
 
         public async Task<IEnumerable<Student>> GetStudentsByTutorId(int TutorId)
         {
+            if (_db.Students.Count() <=2)
+            {
+                var s = new Student()
+                {
+                    ActualGrade = 6,
+                    CreatedBy = 1,
+                    CreationDate = DateTime.Now,
+                    DateOfBirth = DateTime.Now,
+                    FirstName = "Ju",
+                    FullName = "Perla",
+                    Gender = 'M',
+                    IsActive = true,
+                    IsDeleted = false,
+                    LastName = "a",
+                    TutorQuantity = 1
+                };
+                var ss = new Student()
+                {
+                    
+                    ActualGrade = 6,
+                    CreatedBy = 1,
+                    CreationDate = DateTime.Now,
+                    DateOfBirth = DateTime.Now,
+                    FirstName = "Ju",
+                    FullName = "Zara",
+                    Gender = 'M',
+                    IsActive = true,
+                    IsDeleted = false,
+                    LastName = "a",
+                    TutorQuantity = 1
+                };
+                _db.Students.Add(s);
+
+
+                _db.Students.Add(ss);
+
+
+            }
+
             if (_db.StudentsTutors.Count() <= 1)
             {
                 StudentTutor std = new()
@@ -77,8 +113,9 @@ namespace school_app_backend.Features.Tutors
                 _db.StudentsTutors.Add(std);
                 _db.StudentsTutors.Add(stds);
 
-                _db.SaveChanges();
             }
+            _db.SaveChanges();
+
             IEnumerable<Student> students = await _db.StudentsTutors
                 .Where(tutor => tutor.TutorId == TutorId)
                 .Join(_db.Students, studentTutor => studentTutor.StudentId, student => student.Id, (tutor, et) => et)

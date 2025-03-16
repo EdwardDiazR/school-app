@@ -13,11 +13,12 @@ export function StudentCard({ Student }: { Student: StudentForTutor }) {
       <View
         style={{
           marginVertical: 8,
-         
-          padding: 10,
+
+          paddingVertical: 20,
+          paddingHorizontal: 10,
           backgroundColor: "white",
-          borderRadius: 15,
-          elevation: 1,
+          borderRadius: 10,
+          elevation: 2,
           flexDirection: "row",
           gap: 10,
         }}
@@ -26,8 +27,8 @@ export function StudentCard({ Student }: { Student: StudentForTutor }) {
           <View
             style={{
               alignSelf: "center",
-              borderColor: Colors.blueSky,
-              borderWidth: 2,
+              borderColor: "lightgray",
+              borderWidth: 2.5,
               borderRadius: 100,
               overflow: "hidden",
               backgroundColor: "white",
@@ -39,7 +40,7 @@ export function StudentCard({ Student }: { Student: StudentForTutor }) {
               style={{
                 height: ImageSize,
                 width: ImageSize,
-                margin: 2,
+                margin: 3,
               }}
             >
               <Image
@@ -106,7 +107,7 @@ export function StudentCard({ Student }: { Student: StudentForTutor }) {
 
           <Link
             href={{
-              pathname: "/(tutor)/(tabs)/students/options",
+              pathname: "/(app)/(tutor)/(tabs)/students/options",
               params: { name: Student.fullName },
             }}
             style={{ alignSelf: "center" }}

@@ -3,7 +3,7 @@ import axios, { AxiosError } from "axios";
 import { router } from "expo-router";
 import * as SecureStore from "expo-secure-store";
 
-const baseUrl = "http://192.168.1.31:7252/api/auth";
+const baseUrl = "http://192.168.1.28:7252/api/auth";
 
 export const login = (loginDto: LoginDto) => {
   axios

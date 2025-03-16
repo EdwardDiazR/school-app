@@ -9,7 +9,7 @@ import { OptionButton } from "@/components/studentOptions/optionButton";
 
 export default function options() {
   const params = useLocalSearchParams();
-  const { name } = params;
+  const { name,id } = params;
   useFocusEffect(
     useCallback(() => {
       // Forzar renderizado cuando se navega a este screen
@@ -57,7 +57,7 @@ export default function options() {
             options={{
               iconName: "medical-services",
               title: "Excusa medica",
-              route: "/(tutor)/(tabs)/students",
+              route: "/(app)/(tutor)/(tabs)/students",
 
               iconColor: "red",
             }}
@@ -66,7 +66,7 @@ export default function options() {
             options={{
               iconName: "medication-liquid",
               title: "Registrar condicion medica",
-              route: "/(tutor)/(tabs)/students",
+              route: "/(app)/(tutor)/(tabs)/students",
 
               iconColor: "#09a6f3",
             }}
@@ -75,7 +75,7 @@ export default function options() {
             options={{
               iconName: "schedule",
               title: "Solicitar permiso",
-              route: "/(tutor)/(tabs)/students",
+              route: "/(app)/(tutor)/(tabs)/students",
 
               iconColor: "#fa6100",
             }}
@@ -84,7 +84,7 @@ export default function options() {
             options={{
               iconName: "school",
               title: "Ver calificaciones",
-              route: "/(tutor)/(tabs)/students",
+              route: "/(app)/(tutor)/(tabs)/students",
 
               iconColor: "#ffdd00",
             }}
@@ -93,7 +93,7 @@ export default function options() {
             options={{
               iconName: "summarize",
               title: "Ver reportes del estudiante",
-              route: "/(tutor)/(tabs)/students",
+              route: "/(app)/(tutor)/(tabs)/students",
               iconColor: "#04e762",
             }}
           />
@@ -101,7 +101,7 @@ export default function options() {
             options={{
               iconName: "attach-money",
               title: "Pagos",
-              route: "/(tutor)/(tabs)/students",
+              route: "/(app)/(tutor)/(tabs)/students",
               iconColor: "#59d102",
             }}
           />
