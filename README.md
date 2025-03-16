@@ -20,10 +20,17 @@ Una aplicación diseñada para mejorar la comunicación entre colegios 🏫 y tu
   </tr>
   <tr>
         <td><img src="https://github.com/user-attachments/assets/b767646e-0f94-4730-8c27-e257c9cd7456" width=260 height=480></td>
- <td><img src="https://github.com/user-attachments/assets/ab016063-f929-4919-a200-52199656241d" width=260 height=480></td>
+ <td>
+   <img src="https://github.com/user-attachments/assets/ab016063-f929-4919-a200-52199656241d" width=260 height=480></td>
     <td><img src="https://github.com/user-attachments/assets/e6565390-cc2c-4ec8-a055-6284c9ccbc53" width=260 height=480></td>
   </tr>
- 
+ <tr>
+ <td>
+   <img src="https://github.com/user-attachments/assets/e78b4d35-6fe4-477f-9ed2-30651e58d7a9" width=400 height=480>
+ </td>
+   
+ </tr>
+
  </table>
  
 
