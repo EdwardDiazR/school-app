@@ -10,19 +10,21 @@ Una aplicación diseñada para mejorar la comunicación entre colegios 🏫 y tu
 🛠️ React Native | Expo | TypeScript | ASP.NET CORE| SQL SERVER | EF CORE | JWT
 
 <table>
-  <tr>
-    <td>First Screen Page</td>
-     <td>Holiday Mention</td>
-     <td>Present day in purple and selected day in pink</td>
-  </tr>
+
   <tr>
     <td><img src="https://github.com/user-attachments/assets/e31a790f-3fb7-462b-a719-e6ae6257fbcf" width=260 height=480></td>
     <td><img src="https://github.com/user-attachments/assets/8cef447c-c3ea-4fe7-9fb7-c04dc2a3a56b" width=260 height=480></td>
-    <td><img src="https://github.com/user-attachments/assets/2f79f2f4-77ca-4666-ae1d-2f643910e3ac" width=260 height=480></td>
-        <td><img src="https://github.com/user-attachments/assets/b767646e-0f94-4730-8c27-e257c9cd7456" width=260 height=480></td>
-    <td><img src="https://github.com/user-attachments/assets/ab016063-f929-4919-a200-52199656241d" width=260 height=480></td>
-    <td><img src="https://github.com/user-attachments/assets/e6565390-cc2c-4ec8-a055-6284c9ccbc53" width=260 height=480></td>
+   
 
+  </tr>
+  <tr>
+     <td><img src="https://github.com/user-attachments/assets/2f79f2f4-77ca-4666-ae1d-2f643910e3ac" width=260 height=480></td>
+        <td><img src="https://github.com/user-attachments/assets/b767646e-0f94-4730-8c27-e257c9cd7456" width=260 height=480></td>
+
+  </tr>
+  <tr>
+        <td><img src="https://github.com/user-attachments/assets/ab016063-f929-4919-a200-52199656241d" width=260 height=480></td>
+    <td><img src="https://github.com/user-attachments/assets/e6565390-cc2c-4ec8-a055-6284c9ccbc53" width=260 height=480></td>
   </tr>
  </table>
  
