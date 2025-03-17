@@ -16,7 +16,7 @@ Una aplicación diseñada para mejorar la comunicación entre colegios 🏫 y tu
 💳 Pagos – Visualización y gestión de pagos pendientes y próximos.
 
 
-🚀 Tecnologías utilizadas
+🚀 Tecnologías utilizadas:  
 🛠️ React Native | Expo | TypeScript | ASP.NET CORE| SQL SERVER | EF CORE | JWT
 
 <table>
