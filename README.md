@@ -2,6 +2,8 @@ Gestión Escolar App 📱
 Una aplicación diseñada para mejorar la comunicación entre colegios 🏫 y tutores 👨‍👩‍👧, facilitando el acceso a información clave sobre los estudiantes.
 
 ✨ Características principales
+
+
 📊 Dashboard – Resumen de estudiantes, notificaciones y pagos.
 👦 Gestión de estudiantes – Calificaciones, historial médico y permisos.
 🔔 Centro de notificaciones – Información centralizada en tiempo real.
