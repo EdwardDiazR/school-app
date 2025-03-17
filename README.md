@@ -17,7 +17,7 @@ Una aplicación diseñada para mejorar la comunicación entre colegios 🏫 y tu
 
 
 🚀 Tecnologías utilizadas:  
-🛠️ React Native | Expo | TypeScript | ASP.NET CORE| SQL SERVER | EF CORE | JWT
+🛠️ React Native | Expo | TypeScript | ASP.NET CORE | SQL SERVER | EF CORE | JWT
 
 <table>
 
