@@ -37,7 +37,7 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     _authService.login({ isBiometric: true, password: "", username: "Adrian" });
     setAuthState({
       isAuthenticated: true,
-      user: { id: 1, role: UserRoles.Tutor, userName: "Adrian" },
+      user: { id: 1, role: UserRoles.Teacher, userName: "Adrian" },
     });
 
     console.log(authState?.user);

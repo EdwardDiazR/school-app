@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\school-app\\backend\\school-app-backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|solutionrelative:school-app-backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\school-app\\backend\\school-app-backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|solutionrelative:school-app-backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\school-app\\backend\\school-app-backend\\middlewares\\requestloggingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|solutionrelative:school-app-backend\\middlewares\\requestloggingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -51,10 +59,6 @@
       "RelativeMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|solutionrelative:school-app-backend\\features\\auth\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\school-app\\backend\\school-app-backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|solutionrelative:school-app-backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\school-app\\backend\\school-app-backend\\school-app-backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|solutionrelative:school-app-backend\\school-app-backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -73,10 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\school-app\\backend\\school-app-backend\\features\\auth\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|solutionrelative:school-app-backend\\features\\auth\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\school-app\\backend\\school-app-backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|solutionrelative:school-app-backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{885FBC77-A2DB-4A32-A3D8-D1276F3C9746}|school-app-backend\\school-app-backend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\school-app\\backend\\school-app-backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -154,33 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StudentService.cs",
-              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Students\\StudentService.cs",
-              "RelativeDocumentMoniker": "school-app-backend\\Features\\Students\\StudentService.cs",
-              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Students\\StudentService.cs",
-              "RelativeToolTip": "school-app-backend\\Features\\Students\\StudentService.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAWwDUAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T02:55:57.016Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "StudentResponseToTutor.cs",
-              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Students\\DTOs\\StudentResponseToTutor.cs",
-              "RelativeDocumentMoniker": "school-app-backend\\Features\\Students\\DTOs\\StudentResponseToTutor.cs",
-              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Students\\DTOs\\StudentResponseToTutor.cs",
-              "RelativeToolTip": "school-app-backend\\Features\\Students\\DTOs\\StudentResponseToTutor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T03:55:11.04Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "TutorController.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Tutors\\TutorController.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Features\\Tutors\\TutorController.cs",
@@ -188,12 +162,11 @@
               "RelativeToolTip": "school-app-backend\\Features\\Tutors\\TutorController.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAAwCIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T02:12:53.648Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-23T02:12:53.648Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "ITutorService.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Tutors\\ITutorService.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Features\\Tutors\\ITutorService.cs",
@@ -201,12 +174,11 @@
               "RelativeToolTip": "school-app-backend\\Features\\Tutors\\ITutorService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T22:08:18Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T22:08:18Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Users\\User.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Features\\Users\\User.cs",
@@ -214,12 +186,11 @@
               "RelativeToolTip": "school-app-backend\\Features\\Users\\User.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAwAwAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:46:53.423Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:46:53.423Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "StudentResponseToTeacher.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Students\\DTOs\\StudentResponseToTeacher.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Features\\Students\\DTOs\\StudentResponseToTeacher.cs",
@@ -227,12 +198,11 @@
               "RelativeToolTip": "school-app-backend\\Features\\Students\\DTOs\\StudentResponseToTeacher.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAMAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T01:08:05.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-10T01:08:05.457Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "RequestLoggingMiddleware.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Middlewares\\RequestLoggingMiddleware.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Middlewares\\RequestLoggingMiddleware.cs",
@@ -240,12 +210,60 @@
               "RelativeToolTip": "school-app-backend\\Middlewares\\RequestLoggingMiddleware.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAQwB0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T20:03:18.002Z",
+              "WhenOpened": "2025-03-15T20:03:18.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Program.cs",
+              "RelativeDocumentMoniker": "school-app-backend\\Program.cs",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Program.cs",
+              "RelativeToolTip": "school-app-backend\\Program.cs",
+              "ViewState": "AgIAAPQAAAAAAAAAAAArwAIBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T04:04:26.597Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "school-app-backend\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Properties\\launchSettings.json",
+              "RelativeToolTip": "school-app-backend\\Properties\\launchSettings.json",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACQAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-09T03:55:59.605Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "StudentResponseToTutor.cs",
+              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Students\\DTOs\\StudentResponseToTutor.cs",
+              "RelativeDocumentMoniker": "school-app-backend\\Features\\Students\\DTOs\\StudentResponseToTutor.cs",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Students\\DTOs\\StudentResponseToTutor.cs",
+              "RelativeToolTip": "school-app-backend\\Features\\Students\\DTOs\\StudentResponseToTutor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T03:55:11.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StudentService.cs",
+              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Students\\StudentService.cs",
+              "RelativeDocumentMoniker": "school-app-backend\\Features\\Students\\StudentService.cs",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Students\\StudentService.cs",
+              "RelativeToolTip": "school-app-backend\\Features\\Students\\StudentService.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAWwDUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T02:55:57.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "TutorService.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Tutors\\TutorService.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Features\\Tutors\\TutorService.cs",
@@ -253,12 +271,11 @@
               "RelativeToolTip": "school-app-backend\\Features\\Tutors\\TutorService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T21:44:54.815Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T21:44:54.815Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "JwtService.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Auth\\Services\\JwtService.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Features\\Auth\\Services\\JwtService.cs",
@@ -266,12 +283,11 @@
               "RelativeToolTip": "school-app-backend\\Features\\Auth\\Services\\JwtService.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAArwDkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T16:43:21.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T16:43:21.113Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Auth\\AuthService.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Features\\Auth\\AuthService.cs",
@@ -279,12 +295,11 @@
               "RelativeToolTip": "school-app-backend\\Features\\Auth\\AuthService.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAlwBQAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:22:04.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:22:04.934Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Auth\\AuthController.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Features\\Auth\\AuthController.cs",
@@ -292,12 +307,11 @@
               "RelativeToolTip": "school-app-backend\\Features\\Auth\\AuthController.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAkwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T02:25:16.991Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T02:25:16.991Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Auth\\IAuthService.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Features\\Auth\\IAuthService.cs",
@@ -305,12 +319,11 @@
               "RelativeToolTip": "school-app-backend\\Features\\Auth\\IAuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:27:52.68Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T15:27:52.68Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "school-app-backend.csproj",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\school-app-backend.csproj",
               "RelativeDocumentMoniker": "school-app-backend\\school-app-backend.csproj",
@@ -318,25 +331,11 @@
               "RelativeToolTip": "school-app-backend\\school-app-backend.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-02-19T15:28:59.213Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T15:28:59.213Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Program.cs",
-              "RelativeDocumentMoniker": "school-app-backend\\Program.cs",
-              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Program.cs",
-              "RelativeToolTip": "school-app-backend\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T04:04:26.597Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Data\\ApplicationDbContext.cs",
@@ -344,12 +343,11 @@
               "RelativeToolTip": "school-app-backend\\Data\\ApplicationDbContext.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T20:52:31.233Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T20:52:31.233Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "StudentController.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Students\\StudentController.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Features\\Students\\StudentController.cs",
@@ -357,12 +355,11 @@
               "RelativeToolTip": "school-app-backend\\Features\\Students\\StudentController.cs",
               "ViewState": "AgIAAIsAAAAAAAAAAAAwwJUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T02:08:14.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-23T02:08:14.274Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "IStudentService.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Students\\IStudentService.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Features\\Students\\IStudentService.cs",
@@ -370,12 +367,11 @@
               "RelativeToolTip": "school-app-backend\\Features\\Students\\IStudentService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T03:45:06.702Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-23T03:45:06.702Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "TokenService.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Features\\Auth\\Services\\TokenService.cs",
               "RelativeDocumentMoniker": "school-app-backend\\Features\\Auth\\Services\\TokenService.cs",
@@ -383,21 +379,7 @@
               "RelativeToolTip": "school-app-backend\\Features\\Auth\\Services\\TokenService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T23:41:55.835Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "school-app-backend\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\Properties\\launchSettings.json",
-              "RelativeToolTip": "school-app-backend\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAA8AAAAAAAAAAIBJwCQAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-09T03:55:59.605Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-08T23:41:55.835Z"
             },
             {
               "$type": "Document",
@@ -409,8 +391,7 @@
               "RelativeToolTip": "school-app-backend\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-04T04:06:14.301Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-04T04:06:14.301Z"
             },
             {
               "$type": "Document",
@@ -422,8 +403,7 @@
               "RelativeToolTip": "school-app-backend\\Features\\Relationships\\StudentTutor.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAAwAwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T20:59:06.114Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T20:59:06.114Z"
             },
             {
               "$type": "Document",
@@ -435,8 +415,7 @@
               "RelativeToolTip": "school-app-backend\\Features\\Students\\Student.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAwAsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T02:13:17.759Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-23T02:13:17.759Z"
             },
             {
               "$type": "Document",
@@ -448,8 +427,7 @@
               "RelativeToolTip": "school-app-backend\\Features\\Auth\\DTOs\\LoginDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T03:45:07.264Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T03:45:07.264Z"
             },
             {
               "$type": "Document",
@@ -461,8 +439,7 @@
               "RelativeToolTip": "school-app-backend\\Features\\Tutors\\Tutor.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAIA1wA4AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:28:25.853Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T01:28:25.853Z"
             },
             {
               "$type": "Document",
@@ -474,8 +451,7 @@
               "RelativeToolTip": "school-app-backend\\Features\\Roles.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T01:29:57.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-10T01:29:57.322Z"
             },
             {
               "$type": "Document",
@@ -487,8 +463,7 @@
               "RelativeToolTip": "school-app-backend\\Features\\Students\\DTOs\\CreateStudentDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T03:59:46.409Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-23T03:59:46.409Z"
             },
             {
               "$type": "Document",
@@ -500,8 +475,7 @@
               "RelativeToolTip": "school-app-backend\\school-app-backend.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-02-19T15:29:02.656Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T15:29:02.656Z"
             },
             {
               "$type": "Document",
@@ -513,8 +487,7 @@
               "RelativeToolTip": "school-app-backend\\Features\\Auth\\Interfaces\\IJwtService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T02:28:25.137Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T02:28:25.137Z"
             },
             {
               "$type": "Document",
@@ -525,8 +498,7 @@
               "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\school-app\\backend\\school-app-backend\\school-app-backend.csproj",
               "RelativeToolTip": "school-app-backend\\school-app-backend.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-09T03:55:56.822Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T03:55:56.822Z"
             },
             {
               "$type": "Document",
@@ -538,8 +510,7 @@
               "RelativeToolTip": "school-app-backend\\Features\\Auth\\Interfaces\\ITokenService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T23:44:00.12Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-08T23:44:00.12Z"
             },
             {
               "$type": "Document",
@@ -551,8 +522,7 @@
               "RelativeToolTip": "school-app-backend\\Features\\School\\School.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T00:32:22.513Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T00:32:22.513Z"
             },
             {
               "$type": "Document",
@@ -564,8 +534,7 @@
               "RelativeToolTip": "school-app-backend\\Features\\Subjetcs\\SubjectController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T14:22:18.502Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T14:22:18.502Z"
             },
             {
               "$type": "Document",
@@ -577,8 +546,7 @@
               "RelativeToolTip": "school-app-backend\\Controllers\\WeatherForecastController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T15:29:31.049Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T15:29:31.049Z"
             }
           ]
         }

@@ -21,6 +21,7 @@
   <ItemGroup>
     <Folder Include="Features\Jwt\" />
     <Folder Include="Features\Employees\" />
+    <Folder Include="Features\Email\" />
   </ItemGroup>
 
 </Project>

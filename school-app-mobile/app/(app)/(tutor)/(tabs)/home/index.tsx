@@ -565,7 +565,7 @@ export default function index() {
                 style={{ flexDirection: "row", gap: 2, alignItems: "center" }}
                 onPress={() =>
                   router.push(
-                    "/(app)/(tutor)/(tabs)/students/notificationCenter"
+                    "/(app)/(tutor)/notificationCenter"
                   )
                 }
               >
