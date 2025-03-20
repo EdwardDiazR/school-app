@@ -29,6 +29,7 @@ import {
 } from "@expo/vector-icons";
 import { Divider } from "react-native-paper";
 import { TodayClassCard } from "@/components/teacher/todayClassCard";
+import { StatusBar } from "expo-status-bar";
 
 export default function index() {
   const { top } = useSafeAreaInsets();
@@ -64,7 +65,7 @@ export default function index() {
       name: "Biologia",
       grade: "3ro A",
 
-      days: ["Monday", "Tuesday"],
+      days: ["Lunes", "Miercoles"],
       startDate: addHours(new Date(), 3),
       endDate: addHours(new Date(), 4),
     },
@@ -72,7 +73,7 @@ export default function index() {
       name: "Matematicas",
       grade: "5to B",
 
-      days: ["Monday", "Tuesday"],
+      days: ["Martes", "Jueves"],
       startDate: addHours(new Date(), -1),
       endDate: addHours(new Date(), -0.5),
     },
@@ -107,18 +108,21 @@ export default function index() {
                 backgroundColor: "white",
                 paddingHorizontal: StylesConstants.paddingHorizontal,
                 flexDirection: "row",
+                justifyContent: "space-between",
                 alignItems: "center",
-                paddingTop: top + 5,
+                marginTop: top,
+                paddingTop: 10,
                 paddingBottom: 12,
                 gap: 20,
               }}
             >
-              <MaterialIcons name="menu" size={28} />
-              <View>
+              <StatusBar backgroundColor="white" />
+              <MaterialIcons name="menu" size={28} color={"black"} />
+              <View style={{ justifyContent: "flex-start", flex: 1 }}>
                 <Text
                   style={{
                     fontFamily: "MulishBold",
-                    fontSize: 18,
+                    fontSize: 17,
                     color: "black",
                   }}
                 >
@@ -127,13 +131,14 @@ export default function index() {
                 <Text
                   style={{
                     fontFamily: "MulishSemiBold",
-                    fontSize: 17,
+                    fontSize: 15,
                     color: "black",
                   }}
                 >
                   {SpanishDate[0].toUpperCase().concat(SpanishDate.slice(1))}
                 </Text>
               </View>
+              <Ionicons name="person-circle-outline" size={30} />
             </View>
           ),
         }}
