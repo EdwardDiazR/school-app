@@ -32,7 +32,6 @@ Una aplicación diseñada para mejorar la comunicación entre colegios 🏫 y tu
   </tr>
   <tr>
         <td><img src="https://github.com/user-attachments/assets/8cef447c-c3ea-4fe7-9fb7-c04dc2a3a56b" width=260 height=480></td>
-
      <td><img src="https://github.com/user-attachments/assets/2f79f2f4-77ca-4666-ae1d-2f643910e3ac" width=260 height=480></td>
         <td><img src="https://github.com/user-attachments/assets/b767646e-0f94-4730-8c27-e257c9cd7456" width=260 height=480></td>
  <td>
