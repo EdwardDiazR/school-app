@@ -19,6 +19,7 @@ Una aplicación diseñada para mejorar la comunicación entre colegios 🏫 y tu
 🚀 Tecnologías utilizadas:  
 🛠️ React Native | Expo | TypeScript | ASP.NET CORE | SQL SERVER | EF CORE | JWT
 
+<div>
      <img src="https://github.com/user-attachments/assets/23e4b3c6-1718-4213-810d-7ded8d465689" >
     <img src="https://github.com/user-attachments/assets/e31a790f-3fb7-462b-a719-e6ae6257fbcf" width=260 height=480>
         <td><img src="https://github.com/user-attachments/assets/8cef447c-c3ea-4fe7-9fb7-c04dc2a3a56b" width=260 height=480></td>
@@ -30,9 +31,9 @@ Una aplicación diseñada para mejorar la comunicación entre colegios 🏫 y tu
 <img src="https://github.com/user-attachments/assets/e6565390-cc2c-4ec8-a055-6284c9ccbc53" width=260 height=480>
 
 
- </table>
     <img src="https://github.com/user-attachments/assets/e78b4d35-6fe4-477f-9ed2-30651e58d7a9" width=auto height=480>
 
+</div>
  
 
 
