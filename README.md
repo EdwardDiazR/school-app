@@ -19,7 +19,7 @@ Una aplicación diseñada para mejorar la comunicación entre colegios 🏫 y tu
 🚀 Tecnologías utilizadas:  
 🛠️ React Native | Expo | TypeScript | ASP.NET CORE | SQL SERVER | EF CORE | JWT
 
-<p>
+<p align="center">
      <img src="https://github.com/user-attachments/assets/23e4b3c6-1718-4213-810d-7ded8d465689" >
     <img src="https://github.com/user-attachments/assets/e31a790f-3fb7-462b-a719-e6ae6257fbcf">
         <img src="https://github.com/user-attachments/assets/8cef447c-c3ea-4fe7-9fb7-c04dc2a3a56b" >
